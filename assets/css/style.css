@@ -19,6 +19,64 @@ ul li .cv-download-btn:focus {
   box-shadow: 0 2px 8px rgba(24,210,110,0.15);
 }
 
+/* Style for plus sign in Counts section */
+/* Force inline for count number and plus sign */
+.count-box .purecounter,
+.count-box .plus-sign {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0563bb;
+  vertical-align: baseline;
+  display: inline !important;
+  line-height: 1.1;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.count-box .plus-sign {
+  margin-left: 2px;
+}
+
+/* Beautify Counts section */
+.count-box {
+  background: linear-gradient(135deg, rgba(5,99,187,0.10) 0%, rgba(24,210,110,0.10) 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(24,210,110,0.10), 0 1.5px 4px 0 rgba(5,99,187,0.06);
+  padding: 32px 24px 24px 24px;
+  margin-bottom: 24px;
+  transition: transform 0.25s cubic-bezier(.4,2,.3,1), box-shadow 0.25s;
+  position: relative;
+}
+.count-box:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(24,210,110,0.15), 0 3px 8px 0 rgba(5,99,187,0.10);
+}
+.count-box i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, #18d26e 0%, #0563bb 100%);
+  color: #fff;
+  border-radius: 50%;
+  margin: 0 auto 18px auto;
+  box-shadow: 0 2px 8px rgba(24,210,110,0.12);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.count-box:hover i {
+  background: linear-gradient(135deg, #0563bb 0%, #18d26e 100%);
+  box-shadow: 0 4px 16px rgba(5,99,187,0.16);
+}
+.count-box p {
+  margin-top: 14px;
+  font-size: 1.15rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(5,99,187,0.14), 0 1px 2px rgba(0,0,0,0.18);
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
@@ -1014,10 +1072,48 @@ section .container {
 # Contact
 --------------------------------------------------------------*/
 .contact .info-box {
-  color: #444444;
-  padding: 20px;
+  color: #222;
+  padding: 32px 28px 28px 28px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(5,99,187,0.09) 0%, rgba(24,210,110,0.09) 100%);
+  box-shadow: 0 4px 24px 0 rgba(24,210,110,0.13), 0 1.5px 4px 0 rgba(5,99,187,0.08);
+  border-radius: 18px;
+  margin-bottom: 24px;
+  border: 1.5px solid rgba(24,210,110,0.13);
+  transition: transform 0.22s cubic-bezier(.4,2,.3,1), box-shadow 0.22s;
+}
+.contact .info-box:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(24,210,110,0.18), 0 3px 8px 0 rgba(5,99,187,0.13);
+}
+.contact .info-box i {
+  font-size: 2.3rem;
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, #18d26e 0%, #0563bb 100%);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(24,210,110,0.10);
+  margin-bottom: 16px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.contact .info-box:hover i {
+  background: linear-gradient(135deg, #0563bb 0%, #18d26e 100%);
+  box-shadow: 0 4px 16px rgba(5,99,187,0.16);
+}
+.contact .info-box h3 {
+  font-size: 1.18rem;
+  color: #0563bb;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.contact .info-box p, .contact .info-box .social-links {
+  font-size: 1.04rem;
+  color: #222;
+  margin-bottom: 0;
 }
 
 .contact .info-box i.bx {
@@ -1078,6 +1174,47 @@ section .container {
 
 .contact .php-email-form .error-message br+br {
   margin-top: 25px;
+}
+
+.contact .php-email-form .personal-statement-box, .career-goals-box {
+  background: linear-gradient(135deg, rgba(5,99,187,0.10) 0%, rgba(24,210,110,0.10) 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(24,210,110,0.13), 0 1.5px 4px 0 rgba(5,99,187,0.08);
+  padding: 32px 28px 28px 28px;
+  margin-bottom: 18px;
+  transition: transform 0.22s cubic-bezier(.4,2,.3,1), box-shadow 0.22s;
+  border: 1.5px solid rgba(24,210,110,0.13);
+}
+
+.personal-statement-box h3, .career-goals-box h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0563bb;
+  margin-bottom: 18px;
+}
+
+.personal-statement-box i, .career-goals-box i {
+  font-size: 2.2rem;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #18d26e 0%, #0563bb 100%);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(24,210,110,0.10);
+}
+
+.personal-statement-box p, .career-goals-box p {
+  font-size: 1.08rem;
+  color: #fff;
+  line-height: 1.7;
+  margin-bottom: 0;
+  text-shadow: 0 2px 8px rgba(5,99,187,0.10), 0 1px 2px rgba(0,0,0,0.16);
 }
 
 .contact .php-email-form .sent-message {
