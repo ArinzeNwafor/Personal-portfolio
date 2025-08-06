@@ -9,6 +9,16 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+/* Remove underline on hover for CV download button only (stronger specificity) */
+ul li .cv-download-btn,
+ul li .cv-download-btn:hover,
+ul li .cv-download-btn:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: 0 2px 8px rgba(24,210,110,0.15);
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
@@ -1167,8 +1177,8 @@ section .container {
   bottom: 0;
   padding: 15px;
   text-align: right;
-  font-size: 13px;
-  color: #fff;
+  font-size: 5px;
+  color: #202020;
   z-index: 999999;
 }
 
@@ -1181,10 +1191,6 @@ section .container {
 }
 
 .credits a {
-  color: #18d26e;
+  color: #292929;
   transition: 0.3s;
-}
-
-.credits a:hover {
-  color: #fff;
 }
