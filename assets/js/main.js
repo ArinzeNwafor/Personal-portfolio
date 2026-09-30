@@ -46,15 +46,6 @@
   }
 
   /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
    * Scrool with ofset on links with a class name .scrollto
    */
   on('click', '#navbar .nav-link', function(e) {
@@ -72,13 +63,6 @@
       })
 
       this.classList.add('active')
-
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
 
       if (this.hash == '#header') {
         header.classList.remove('header-top')
@@ -269,19 +253,6 @@
       tab.setAttribute('aria-selected', 'true');
     });
   });
-
-  /**
-   * Keyboard support for mobile nav toggle (a11y, since toggle is <i>)
-   */
-  const navToggle = document.querySelector('.mobile-nav-toggle');
-  if (navToggle) {
-    navToggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        navToggle.click();
-      }
-    });
-  }
 
   /**
    * Hero intro animation: split name into letters, then reveal
