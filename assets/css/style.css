@@ -85,6 +85,11 @@ body {
   background: transparent;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -129,6 +134,7 @@ h6 {
   transition: ease-in-out 0.3s;
   position: relative;
   height: 100vh;
+  height: 100svh;
   display: flex;
   align-items: center;
   z-index: 997;
@@ -252,15 +258,18 @@ h6 {
 @media (max-width: 992px) {
   #header h1 {
     font-size: 36px;
+    text-align: center;
   }
 
   #header h2 {
     font-size: 20px;
     line-height: 30px;
+    text-align: center;
   }
 
   #header .social-links {
     margin-top: 15px;
+    justify-content: center;
   }
 
   #header .container {
@@ -555,6 +564,20 @@ section .container {
 
   section.section-show {
     top: 80px;
+  }
+
+  section .container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #header h1 {
+    font-size: 32px;
+  }
+
+  .ed-facts dt {
+    flex-basis: 88px;
   }
 }
 
@@ -1457,6 +1480,8 @@ section .container {
   margin: 0;
   color: #e8e8e8;
   line-height: 1.6;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 /* Stat strip */
