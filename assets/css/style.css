@@ -254,7 +254,6 @@ h6 {
 #header .social-links a:focus-within {
   background: #18d26e;
   max-width: 190px;
-  box-shadow: 0 4px 15px rgba(24, 210, 110, 0.4);
 }
 
 #header .social-links a:hover .label,
@@ -1643,7 +1642,6 @@ section .container {
 .contact-social a:focus-visible {
   background: #18d26e;
   max-width: 180px;
-  box-shadow: 0 4px 15px rgba(24, 210, 110, 0.4);
 }
 .contact-social a:hover .label,
 .contact-social a:focus-visible .label {
