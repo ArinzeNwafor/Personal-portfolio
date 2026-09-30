@@ -99,12 +99,22 @@ body::before {
   right: 0;
   top: 0;
   height: 100vh;
+  height: 100svh;
   z-index: -1;
 }
 
 @media (min-width: 1024px) {
   body::before {
     background-attachment: fixed;
+  }
+}
+
+/* Mobile: center the backdrop photo and dim it so text stays readable */
+@media (max-width: 768px) {
+  body::before {
+    background:
+      linear-gradient(rgba(4, 4, 4, 0.8), rgba(4, 4, 4, 0.92)),
+      url("../img/bg.jpg") center top / cover no-repeat;
   }
 }
 
@@ -276,6 +286,7 @@ h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 64px;
   }
 }
 
@@ -465,19 +476,32 @@ ul li .cv-download-btn:focus-visible {
 */
 .mobile-nav-toggle {
   color: #fff;
-  font-size: 28px;
+  font-size: 24px;
   cursor: pointer;
   display: none;
-  line-height: 0;
-  transition: 0.5s;
+  line-height: 1;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
   position: fixed;
   right: 15px;
   top: 15px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
 }
 
 @media (max-width: 991px) {
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
   }
 
   .navbar ul {
@@ -492,8 +516,10 @@ ul li .cv-download-btn:focus-visible {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
+  background: rgba(4, 7, 6, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.3s ease;
   z-index: 999;
   margin-top: 0;
 }
@@ -505,20 +531,41 @@ ul li .cv-download-btn:focus-visible {
 }
 
 .navbar-mobile ul {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 45px;
-  left: 15px;
-  padding: 10px 0;
+  inset: 0;
+  padding: 80px 24px 48px;
+  margin: 0;
   overflow-y: auto;
-  transition: 0.3s;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  list-style: none;
 }
 
 .navbar-mobile li {
-  padding: 12px 20px;
+  padding: 0;
+  opacity: 0;
+  animation: mobile-link-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.navbar-mobile li:nth-child(1) { animation-delay: 0.05s; }
+.navbar-mobile li:nth-child(2) { animation-delay: 0.1s; }
+.navbar-mobile li:nth-child(3) { animation-delay: 0.15s; }
+.navbar-mobile li:nth-child(4) { animation-delay: 0.2s; }
+.navbar-mobile li:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes mobile-link-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navbar-mobile li+li {
@@ -527,8 +574,26 @@ ul li .cv-download-btn:focus-visible {
 
 .navbar-mobile a,
 .navbar-mobile a:focus {
-  font-size: 16px;
   position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+  padding: 10px 18px;
+}
+
+.navbar-mobile a.active {
+  color: #18d26e;
+}
+
+.navbar-mobile a:focus {
+  color: #fff;
+}
+
+.navbar-mobile .cv-download-btn {
+  margin: 16px auto 0 !important;
+  font-size: 1rem;
 }
 
 /*--------------------------------------------------------------
@@ -568,6 +633,11 @@ section .container {
 
   section .container {
     padding: 20px;
+  }
+
+  .section-title p {
+    font-size: 26px;
+    line-height: 1.25;
   }
 }
 
@@ -1429,6 +1499,16 @@ section .container {
 /* Offset-framed photo + caption */
 .ed-photo {
   margin: 0;
+}
+@media (max-width: 991px) {
+  .ed-photo {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 8px;
+  }
+  .ed-photo img {
+    outline-offset: 0;
+  }
 }
 .ed-photo img {
   border-radius: 4px;
