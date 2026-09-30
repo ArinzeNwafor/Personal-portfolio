@@ -35,10 +35,36 @@
     }
   }
 
-  /**
-   * Scrolls to an element with header offset
+/**
+   * Scrool with ofset on links with a class name .scrollto
    */
   const scrollto = (el) => {
+    const isMobile = window.matchMedia('(max-width: 991px)').matches
+
+    if (el === '#header') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+      return
+    }
+
+    // On mobile the sections are static and always visible, so scroll to the
+    // target itself (clear of the fixed bar) instead of pinning to the top.
+    if (isMobile && el) {
+      const target = select(el)
+      if (target) {
+        const bar = select('#header.header-top')
+        const offset = bar ? bar.getBoundingClientRect().height : 0
+        const y = target.getBoundingClientRect().top + window.pageYOffset - offset - 12
+        window.scrollTo({
+          top: Math.max(0, y),
+          behavior: 'smooth'
+        })
+        return
+      }
+    }
+
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -63,6 +89,15 @@
       })
 
       this.classList.add('active')
+
+      // Mobile: sections are static and always visible, so there is nothing
+      // to show or hide. Skipping header-top also keeps the hero in the
+      // document flow; making it fixed would yank the full-height hero out of
+      // the flow and shift every section up mid-navigation.
+      if (window.matchMedia('(max-width: 991px)').matches) {
+        scrollto(this.hash)
+        return
+      }
 
       if (this.hash == '#header') {
         header.classList.remove('header-top')
@@ -102,8 +137,11 @@
       if (initial_nav) {
         let header = select('#header')
         let navlinks = select('#navbar .nav-link', true)
+        const isMobile = window.matchMedia('(max-width: 991px)').matches
 
-        header.classList.add('header-top')
+        if (!isMobile) {
+          header.classList.add('header-top')
+        }
 
         navlinks.forEach((item) => {
           if (item.getAttribute('href') == window.location.hash) {
@@ -113,9 +151,11 @@
           }
         })
 
-        setTimeout(function() {
-          initial_nav.classList.add('section-show')
-        }, 350);
+        if (!isMobile) {
+          setTimeout(function() {
+            initial_nav.classList.add('section-show')
+          }, 350);
+        }
 
         scrollto(window.location.hash)
       }
