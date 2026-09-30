@@ -55,6 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Clicking anywhere on a row (label column, padding, gaps) focuses its control
+  form.querySelectorAll('.field').forEach((row) => {
+    row.addEventListener('click', (e) => {
+      if (e.target.closest('input, textarea, select, button, a')) return;
+      row.querySelector('input, textarea')?.focus();
+    });
+  });
+
   if (messageEl && counterEl) {
     const updateCount = () => {
       counterEl.textContent = `${messageEl.value.length} / ${maxLength}`;
@@ -101,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       form.reset();
       if (counterEl) counterEl.textContent = `0 / ${maxLength}`;
-      statusEl.textContent = "Message sent. I'll reply within 24–48 hours.";
+      statusEl.textContent = 'Message sent. For anything urgent, WhatsApp or email is fastest.';
       statusEl.className = 'form-status success';
     } catch (err) {
       statusEl.textContent =

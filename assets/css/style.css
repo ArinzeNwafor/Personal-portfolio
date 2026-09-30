@@ -1294,6 +1294,7 @@ section .container {
   font-size: 5px;
   color: #202020;
   z-index: 999999;
+  pointer-events: none;
 }
 
 @media (max-width: 992px) {
@@ -1307,6 +1308,7 @@ section .container {
 .credits a {
   color: #292929;
   transition: 0.3s;
+  pointer-events: auto;
 }
 
 /*--------------------------------------------------------------
@@ -1677,11 +1679,13 @@ section .container {
 }
 .field {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 20px;
   padding: 16px 0 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   transition: border-color 0.3s ease;
+  cursor: text;
 }
 .field:focus-within {
   border-bottom-color: rgba(24, 210, 110, 0.75);
@@ -1704,6 +1708,7 @@ section .container {
 .field textarea {
   flex: 1 1 auto;
   width: 100%;
+  min-width: 0;
   background: transparent;
   border: 0;
   outline: none;
@@ -1711,8 +1716,12 @@ section .container {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  padding: 0;
+  padding: 6px 0;
   resize: vertical;
+}
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: none;
 }
 .field input::placeholder,
 .field textarea::placeholder {
