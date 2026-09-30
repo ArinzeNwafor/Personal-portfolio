@@ -2253,41 +2253,13 @@ body.hero-loaded #header h1 .hero-char {
 }
 
 /*--------------------------------------------------------------
-# Mobile: sections are static, always visible, no entrance animation
-   The desktop template shows one section at a time by toggling
-   .section-show while every <section> is position:absolute with
-   bottom:100% / opacity:0. That hide/show machine is what produced the
-   "reveals then disappears" behaviour on phones. On mobile the sections
-   sit in normal document flow instead, so there is nothing to hide and
-   nothing to animate.
+# Mobile: Resume + Contact content renders without entrance animation
+   Sections stay one-at-a-time exactly as designed. Their .reveal items
+   start at opacity:0 and wait for an IntersectionObserver; on a short
+   phone viewport those items are what read as "content never appears".
+   About keeps its own animations - they already work correctly.
 --------------------------------------------------------------*/
 @media (max-width: 991px) {
-  #about,
-  #resume,
-  #contact {
-    position: static !important;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto;
-    width: 100%;
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    transition: none !important;
-    padding-bottom: 70px;
-  }
-
-  /* Entrance states are no longer needed, so pin everything visible */
-  #about .about-me,
-  #about .counts,
-  #about .skills,
-  #about .interests,
-  #about .testimonials,
-  #about .ed-lede .ed-w,
-  #about .reveal,
-  #about .reveal-blur,
-  #about .reveal-line,
   #resume .reveal,
   #contact .reveal {
     opacity: 1 !important;
@@ -2296,9 +2268,5 @@ body.hero-loaded #header h1 .hero-char {
     animation: none !important;
     transition: none !important;
     transition-delay: 0s !important;
-  }
-
-  #about .reveal-line::after {
-    display: none !important;
   }
 }

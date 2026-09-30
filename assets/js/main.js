@@ -37,34 +37,11 @@
 
 /**
    * Scrool with ofset on links with a class name .scrollto
+   * Shown sections sit at document top 100px, and the fixed mini-bar ends at
+   * ~83px, so parking at 0 leaves them cleanly below the bar. Measuring the
+   * bar here instead would catch it mid-collapse animation (667px -> 83px).
    */
   const scrollto = (el) => {
-    const isMobile = window.matchMedia('(max-width: 991px)').matches
-
-    if (el === '#header') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
-      return
-    }
-
-    // On mobile the sections are static and always visible, so scroll to the
-    // target itself (clear of the fixed bar) instead of pinning to the top.
-    if (isMobile && el) {
-      const target = select(el)
-      if (target) {
-        const bar = select('#header.header-top')
-        const offset = bar ? bar.getBoundingClientRect().height : 0
-        const y = target.getBoundingClientRect().top + window.pageYOffset - offset - 12
-        window.scrollTo({
-          top: Math.max(0, y),
-          behavior: 'smooth'
-        })
-        return
-      }
-    }
-
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -90,15 +67,6 @@
 
       this.classList.add('active')
 
-      // Mobile: sections are static and always visible, so there is nothing
-      // to show or hide. Skipping header-top also keeps the hero in the
-      // document flow; making it fixed would yank the full-height hero out of
-      // the flow and shift every section up mid-navigation.
-      if (window.matchMedia('(max-width: 991px)').matches) {
-        scrollto(this.hash)
-        return
-      }
-
       if (this.hash == '#header') {
         header.classList.remove('header-top')
         sections.forEach((item) => {
@@ -107,21 +75,15 @@
         return;
       }
 
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function() {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
-
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
+      // header-top pulls the full-height hero out of the document flow.
+      // Showing the section later (the old 350ms defer) left the page with
+      // almost no scrollable height in between, which is what collapsed the
+      // view mid-navigation. Apply both classes in the same frame instead.
+      header.classList.add('header-top')
+      sections.forEach((item) => {
+        item.classList.remove('section-show')
+      })
+      section.classList.add('section-show')
 
       scrollto(this.hash)
     }
@@ -137,11 +99,8 @@
       if (initial_nav) {
         let header = select('#header')
         let navlinks = select('#navbar .nav-link', true)
-        const isMobile = window.matchMedia('(max-width: 991px)').matches
 
-        if (!isMobile) {
-          header.classList.add('header-top')
-        }
+        header.classList.add('header-top')
 
         navlinks.forEach((item) => {
           if (item.getAttribute('href') == window.location.hash) {
@@ -151,11 +110,7 @@
           }
         })
 
-        if (!isMobile) {
-          setTimeout(function() {
-            initial_nav.classList.add('section-show')
-          }, 350);
-        }
+        initial_nav.classList.add('section-show')
 
         scrollto(window.location.hash)
       }
