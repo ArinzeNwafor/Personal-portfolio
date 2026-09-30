@@ -1,478 +1,899 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Arinze Nwafor | Software Developer & Founder</title>
+    <meta
+      content="Personal Portfolio of Arinze Nwafor - B.Sc. Computer Science Graduate, Founder & CTO at Kamp, Co-Founder at Diverse Labs. Full-stack mobile and web developer specializing in Flutter, Laravel, PHP, Python, and system engineering."
+      name="description"
+    />
+    <meta
+      content="Arinze Nwafor, Kamp, Diverse Labs, Software Developer, Full-Stack Developer, Flutter, PHP, Laravel, Computer Science, Lekki Lagos Nigeria"
+      name="keywords"
+    />
+    <meta
+      property="og:title"
+      content="Arinze Nwafor | Software Developer & Founder"
+    />
+    <meta
+      property="og:description"
+      content="Full-stack mobile and web developer — Flutter, Laravel, React. Founder & CTO at Kamp, Co-Founder at Diverse Labs."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/me.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Arinze Nwafor | Software Developer & Founder"
+    />
+    <meta
+      name="twitter:description"
+      content="Full-stack mobile and web developer — Flutter, Laravel, React. Founder & CTO at Kamp."
+    />
+    <meta name="theme-color" content="#040404" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <noscript>
+      <style>
+        #header h1,
+        #header h2,
+        #header #navbar,
+        #header .social-links,
+        .reveal,
+        #about .reveal-blur,
+        #about .reveal-line {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
 
-  <title>Arinze Nwafor | Software Developer & Founder</title>
-  <meta content="Personal Portfolio of Arinze Nwafor - B.Sc. Computer Science Graduate, Founder & CTO at Kamp, Co-Founder at Diverse Labs. Full-stack mobile and web developer specializing in Flutter, Laravel, PHP, Python, and system engineering." name="description">
-  <meta content="Arinze Nwafor, Kamp, Diverse Labs, Software Developer, Full-Stack Developer, Flutter, PHP, Laravel, Computer Science, Lekki Lagos Nigeria" name="keywords">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/favicon.png" rel="apple-touch-icon" />
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/favicon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
 
-  <!-- Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-</head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="container">
+        <h1><a href="index.html">Arinze Nwafor</a></h1>
+        <h2>
+          Software Engineer | IT Support |
+          <span>Product Builder</span>
+        </h2>
 
-<body>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link active" href="#header">Home</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#resume">Resume</a></li>
+            <!-- <li><a class="nav-link" href="#projects">Projects</a></li> -->
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+            <li>
+              <a
+                href="assets/Resume__Arinze_Nwafor.pdf"
+                download
+                class="ms-2 d-flex align-items-center cv-download-btn"
+                style="
+                  color: #fff;
+                  border: 0.2px solid #18d26e;
+                  border-radius: 2em;
+                  font-weight: 600;
+                  gap: 0.5em;
+                  padding: 0.4em 1.2em;
+                  box-shadow: 0 2px 8px rgba(24, 210, 110, 0.15);
+                  transition: background 0.2s;
+                  text-decoration: none !important;
+                "
+              >
+                <i
+                  class="bi bi-download"
+                  style="font-size: 1.2em; color: #fff"
+                ></i>
+                Download Resume
+              </a>
+            </li>
+          </ul>
+          <i
+            class="bi bi-list mobile-nav-toggle"
+            role="button"
+            tabindex="0"
+            aria-label="Toggle navigation"
+          ></i>
+        </nav>
+        <!-- .navbar -->
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
+        <div class="social-links">
+          <a
+            href="https://github.com/arinzenwafor"
+            target="_blank" rel="noopener"
+            class="github"
+            title="GitHub"
+            aria-label="GitHub"
+            ><i class="bi bi-github" aria-hidden="true"></i
+            ><span class="label">GitHub</span></a
+          >
+          <a
+            href="https://www.linkedin.com/in/arinzenwafor/"
+            target="_blank" rel="noopener"
+            class="linkedin"
+            title="LinkedIn — let's connect"
+            aria-label="LinkedIn — let's connect"
+            ><i class="bi bi-linkedin" aria-hidden="true"></i
+            ><span class="label">Connect</span></a
+          >
+          <a
+            href="tel:+2348105675143"
+            class="phone"
+            title="Call me"
+            aria-label="Call me"
+            ><i class="bi bi-telephone" aria-hidden="true"></i
+            ><span class="label">Call Me</span></a
+          >
+          <a
+            href="mailto:arinzenwafor.c@gmail.com"
+            class="gmail"
+            title="Hire me — send an email"
+            aria-label="Hire me — send an email"
+            ><i class="bi bi-envelope" aria-hidden="true"></i
+            ><span class="label">Hire Me</span></a
+          >
+          <a
+            href="https://lnk.bio/arinzenwafor"
+            target="_blank" rel="noopener"
+            class="lnk"
+            title="More links"
+            aria-label="More links"
+            ><i class="bi bi-link" aria-hidden="true"></i
+            ><span class="label">Links</span></a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
 
-      <h1><a href="index.html">Arinze Nwafor</a></h1>
-      <h2>B.Sc. Computer Science &amp; <span>Software Developer</span></h2>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <!-- ======= About Me ======= -->
+      <div class="about-me container">
+        <div class="section-title">
+          <h2>About</h2>
+          <p>Developer, Founder &amp; Problem Solver</p>
+        </div>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-          <!-- <li><a class="nav-link" href="#projects">Projects</a></li> -->
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-          <li>
-            <a href="assets/Resume__Arinze_Nwafor.pdf" download class="ms-2 d-flex align-items-center cv-download-btn" style="color:#fff; border: 0.2px solid #18d26e; border-radius:2em; font-weight:600; gap:0.5em; padding:0.4em 1.2em; box-shadow:0 2px 8px rgba(24,210,110,0.15); transition:background 0.2s; text-decoration:none !important;">
-              <i class="bi bi-download" style="font-size: 1.2em; color:#fff;"></i>
-              Download Resume
-            </a>
+        <div class="row ed-profile">
+          <div class="col-lg-4">
+            <figure class="ed-photo">
+              <img
+                src="assets/img/me.jpg"
+                class="img-fluid"
+                alt="Arinze Nwafor"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption><span></span>Arinze Nwafor — Lekki, Lagos</figcaption>
+            </figure>
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0">
+            <p class="ed-kicker">01 — Profile</p>
+            <p class="ed-lede">
+              I build and ship software people actually use — management
+              systems for organizations, ERP platforms,
+              mobile social networks, and live products
+              serving real users every day.
+            </p>
+            <p class="ed-body reveal-blur">
+              Computer Science graduate (2026), Founder at Kamp, Co-Founder
+              at Diverse Labs. Day to day I live in JS, Flutter, and
+              Laravel, but I ship in React, PHP, Python and plain HTML/CSS
+              too — and I can still rescue a dead laptop, configure a BIOS
+              and deploy operating systems before lunch.
+            </p>
+            <dl class="ed-facts">
+              <div class="reveal-line">
+                <dt>Base</dt>
+                <dd>Lekki, Lagos, Nigeria</dd>
+              </div>
+              <div class="reveal-line">
+                <dt>Contact</dt>
+                <dd>
+                  <a href="mailto:arinzenwafor.c@gmail.com"
+                    >arinzenwafor.c@gmail.com</a
+                  >
+                  · +234-810-567-5143
+                </dd>
+              </div>
+              <div class="reveal-line">
+                <dt>Degree</dt>
+                <dd>B.Sc. Computer Science (2026)</dd>
+              </div>
+              <div class="reveal-line">
+                <dt>Standing</dt>
+                <dd>
+                  Graduate Member, Computer Professionals of Nigeria (GMCPN)
+                </dd>
+              </div>
+              <div class="reveal-line">
+                <dt>Elsewhere</dt>
+                <dd>
+                  <a
+                    href="https://github.com/arinzenwafor"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub</a
+                  >
+                  ·
+                  <a
+                    href="https://www.linkedin.com/in/arinzenwafor/"
+                    target="_blank"
+                    rel="noopener"
+                    >LinkedIn</a
+                  >
+                  ·
+                  <a
+                    href="https://kamp.ng"
+                    target="_blank"
+                    rel="noopener"
+                    >kamp.ng</a
+                  >
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <!-- End About Me -->
+
+      <!-- ======= Counts ======= -->
+      <div class="counts container">
+        <p class="ed-kicker">02 — By the numbers</p>
+        <div class="row ed-stats">
+          <div class="col-6 col-lg-3 ed-stat reveal">
+            <p class="ed-num">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="5"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span
+              ><span class="plus-sign">+</span>
+            </p>
+            <p class="ed-cap">Years building</p>
+          </div>
+
+          <div class="col-6 col-lg-3 ed-stat reveal">
+            <p class="ed-num">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="30"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span
+              ><span class="plus-sign">+</span>
+            </p>
+            <p class="ed-cap">Projects shipped</p>
+          </div>
+
+          <div class="col-6 col-lg-3 ed-stat reveal">
+            <p class="ed-num">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="500"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span
+              ><span class="plus-sign">+</span>
+            </p>
+            <p class="ed-cap">Volunteer hours</p>
+          </div>
+
+          <div class="col-6 col-lg-3 ed-stat reveal">
+            <p class="ed-num">GMCPN</p>
+            <p class="ed-cap">CPN registered member</p>
+          </div>
+        </div>
+      </div>
+      <!-- End Counts -->
+
+      <!-- ======= Skills  ======= -->
+      <div class="skills container">
+        <p class="ed-kicker">03 — Stack</p>
+        <h3 class="ed-sub">The tools I reach for, grouped by job.</h3>
+        <div class="ed-groups">
+          <div class="ed-group reveal">
+            <h4><i class="bi bi-phone"></i>Mobile</h4>
+            <div>
+              <span class="ed-chip">Flutter</span>
+              <span class="ed-chip">Dart</span>
+            </div>
+          </div>
+          <div class="ed-group reveal">
+            <h4><i class="bi bi-hdd-stack"></i>Backend</h4>
+            <div>
+              <span class="ed-chip">PHP</span>
+              <span class="ed-chip">Laravel</span>
+              <span class="ed-chip">CodeIgniter</span>
+              <span class="ed-chip">Filament</span>
+              <span class="ed-chip">REST APIs</span>
+            </div>
+          </div>
+          <div class="ed-group reveal">
+            <h4><i class="bi bi-layout-text-window-reverse"></i>Frontend</h4>
+            <div>
+              <span class="ed-chip">JavaScript</span>
+              <span class="ed-chip">React</span>
+              <span class="ed-chip">Next.js</span>
+              <span class="ed-chip">Node.js</span>
+              <span class="ed-chip">HTML / CSS</span>
+              <span class="ed-chip">Bootstrap</span>
+            </div>
+          </div>
+          <div class="ed-group reveal">
+            <h4><i class="bi bi-database"></i>Data &amp; Cloud</h4>
+            <div>
+              <span class="ed-chip">MySQL</span>
+              <span class="ed-chip">PostgreSQL</span>
+              <span class="ed-chip">MongoDB</span>
+              <span class="ed-chip">Firebase</span>
+              <span class="ed-chip">Supabase</span>
+            </div>
+          </div>
+          <div class="ed-group reveal">
+            <h4><i class="bi bi-tools"></i>Toolbox</h4>
+            <div>
+              <span class="ed-chip">Git &amp; GitHub</span>
+              <span class="ed-chip">Android Studio</span>
+              <span class="ed-chip">VS Code</span>
+              <span class="ed-chip">Figma</span>
+              <span class="ed-chip">Postman</span>
+              <span class="ed-chip">Docker</span>
+              <span class="ed-chip">Vercel</span>
+              <span class="ed-chip">Netlify</span>
+              <span class="ed-chip">Python</span>
+              <span class="ed-chip">CustomTkinter</span>
+            </div>
+          </div>
+          <div class="ed-group reveal">
+            <h4><i class="bi bi-cpu"></i>Systems</h4>
+            <div>
+              <span class="ed-chip">Hardware Diagnostics</span>
+              <span class="ed-chip">Windows Deployment</span>
+              <span class="ed-chip">Endpoint Security</span>
+            </div>
+          </div>
+          <div class="ed-group reveal">
+            <h4><i class="bi bi-layers"></i>Working Knowledge</h4>
+            <div>
+              <span class="ed-chip">C</span>
+              <span class="ed-chip">Java</span>
+              <span class="ed-chip">Rust</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Skills -->
+
+      <!-- ======= Interests ======= -->
+      <div class="interests container">
+        <p class="ed-kicker">04 — Now</p>
+        <h3 class="ed-sub">What I'm occupied with lately.</h3>
+        <ul class="ed-now">
+          <li class="reveal">
+            <i class="bi bi-rocket-takeoff"></i>
+            <strong>Growing Kamp</strong> past its first 50 users toward a
+            multi-university launch.
+          </li>
+          <li class="reveal">
+            <i class="bi bi-briefcase"></i>
+            <strong>Shipping client work</strong> through Diverse Labs — Sauki,
+            HerKudi and more.
+          </li>
+          <li class="reveal">
+            <i class="bi bi-people"></i>
+            <strong>Mentoring &amp; repair clinics</strong> with NACOS: the
+            Buildathon, the Laptop Clinic, study support.
+          </li>
+          <li class="reveal">
+            <i class="bi bi-heart"></i>
+            <strong>Volunteer builds</strong> — the SHCJ Sisters portal and the
+            Boundless Horizons Foundation site.
+          </li>
+          <li class="reveal">
+            <i class="bi bi-robot"></i>
+            <strong>Reading into AI &amp; deep learning</strong>, where my
+            degree left off.
           </li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <div class="social-links">
-        <a href="https://github.com/arinzenwafor" target="_blank" class="github" title="GitHub"><i class="bi bi-github"></i></a>
-        <a href="https://linkedin.com/in/arinze-nwafor/" target="_blank" class="linkedin" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="https://kamp.ng" target="_blank" class="globe" title="Kamp Platform"><i class="bi bi-globe"></i></a>
-        <a href="mailto:arinzenwafor.c@gmail.com" class="gmail" title="Email Me"><i class="bi bi-envelope"></i></a>
-        <a href="https://lnk.bio/arinze-nwafor" target="_blank" class="lnk" title="Linktree"><i class="bi bi-link"></i></a>
       </div>
+      <!-- End Interests -->
 
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-      <div class="section-title">
-        <h2>About</h2>
-        <p>Something worth knowing</p>
+      <!-- ======= Personal Statement & Career Goals ======= -->
+      <div class="testimonials container">
+        <p class="ed-kicker">05 — How I work</p>
+        <p class="ed-lede ed-lede--sm">
+          I like owning a problem end to end — whiteboard to app store — and
+          I learn fastest inside a team that ships.
+        </p>
+        <p class="ed-avail">
+          Currently open to <strong>full-stack roles</strong>,
+          <strong>Flutter mobile work</strong> and
+          <strong>technical co-founder</strong> conversations —
+          <a href="mailto:arinzenwafor.c@gmail.com"
+            >arinzenwafor.c@gmail.com</a
+          >
+        </p>
       </div>
+      <!-- End Personal Statement & Career Goals -->
+    </section>
+    <!-- End About Section -->
 
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.jpg" class="img-fluid rounded" alt="Arinze Nwafor" style="border: 2px solid #18d26e; box-shadow: 0 0 20px rgba(24, 210, 110, 0.2);">
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>Career, education and impact — on one page</p>
         </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>B.Sc. Computer Science &amp; Founder / CTO</h3>
-          <p class="fst-italic">
-            Passionate software developer, tech startup founder, and computer science graduate experienced in building scalable mobile applications, robust web platforms, and community-driven digital solutions.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item reveal pb-0">
+              <h4>Arinze Nwafor</h4>
+              <p>
+                <em
+                  >Computer Science graduate and tech startup founder with
+                  practical experience in software development, IT support,
+                  systems troubleshooting, and digital product development.
+                  Built and shipped real products spanning social platforms,
+                  NGO and healthcare web systems, organizational information
+                  management, and eLearning infrastructure.</em
+                >
+              </p>
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+234-810-567-5143</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <a href="mailto:arinzenwafor.c@gmail.com">arinzenwafor.c@gmail.com</a></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Lekki, Lagos, Nigeria</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Live Apps:</strong> <a href="https://kamp.ng" target="_blank">kamp.ng</a> | <a href="https://arinzenwafor.netlify.app" target="_blank">arinzenwafor.netlify.app</a></li>
+                <li>Lekki, Lagos, Nigeria</li>
+                <li>+234-810-567-5143</li>
+                <li>arinzenwafor.c@gmail.com</li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/arinzenwafor/"
+                    target="_blank" rel="noopener"
+                      >linkedin.com/in/arinzenwafor/</a
+                  >
+                </li>
+                <li>
+                  <a href="https://github.com/arinzenwafor" target="_blank" rel="noopener"
+                    >github.com/arinzenwafor</a
+                  >
+                </li>
+                <li>
+                  <a href="https://kamp.ng" target="_blank" rel="noopener">kamp.ng</a> |
+                  <a href="https://arinzenwafor.netlify.app" target="_blank" rel="noopener"
+                    >arinzenwafor.netlify.app</a
+                  >
+                </li>
               </ul>
             </div>
-            <div class="col-lg-6">
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item reveal">
+              <h4>Bachelor of Science in Computer Science</h4>
+              <h5>Oct. 2023 – July 2026</h5>
+              <p>
+                <em>McPherson University, Abeokuta, Ogun State, Nigeria</em>
+              </p>
+              <p>
+                <strong>Final-Year Thesis:</strong> Design and Implementation of
+                an Orphanage Management System: A Case Study of Vigilant Heart
+                Charitable Society.<br />
+                <em>Relevant Coursework:</em> Data Structures &amp; Algorithms,
+                Object-Oriented Programming, Algorithm Analysis, Database
+                Management, Artificial Intelligence &amp; Deep Learning,
+                Operating Systems, Computer Architecture, Discrete
+                Mathematics.
+              </p>
+            </div>
+            <div class="resume-item reveal">
+              <h4>Bachelor of Science in Computer Science (First Year)</h4>
+              <h5>Oct. 2022 – July 2023</h5>
+              <p><em>Pan-Atlantic University, Lagos, Nigeria</em></p>
+              <p>
+                Completed foundational Computer Science studies with experience
+                in programming logic and technical problem solving.
+              </p>
+            </div>
+
+            <h3 class="resume-title">Professional Membership</h3>
+            <div class="resume-item reveal">
+              <h4>Graduate Member (GMCPN)</h4>
+              <h5>July 2026 – Present</h5>
+              <p>
+                <em
+                  >Computer Professionals (Registration Council of Nigeria)</em
+                >
+              </p>
+              <p>
+                Registered graduate member under Nigeria's official computing
+                regulatory body (CPN).
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <h3 class="resume-title">
+              Professional &amp; Entrepreneurial Experience
+            </h3>
+
+            <div class="resume-item reveal">
+              <h4>Founder &amp; CTO — Full-Stack Mobile Developer</h4>
+              <h5>June 2026 – Present</h5>
+              <p><em>Kamp &bull; kamp.ng &bull; Nigeria</em></p>
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>B.Sc. Computer Science (2026)</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Membership:</strong> <span>Graduate Member (GMCPN)</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arinze-nwafor/" target="_blank">linkedin.com/in/arinze-nwafor</a></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>GitHub:</strong> <a href="https://github.com/arinzenwafor" target="_blank">github.com/arinzenwafor</a></li>
+                <li>
+                  Founded and lead Kamp, a live anonymous campus social
+                  networking platform for verified university students —
+                  from idea through architecture, development, and launch.
+                </li>
+                <li>
+                  Own the full technical stack: Flutter mobile development,
+                  backend engineering, system architecture, UI/UX design,
+                  deployment, and ongoing product iteration.
+                </li>
+                <li>
+                  Built core features: anonymous posts, reactions, campus
+                  feeds, direct messaging, push notifications, institutional
+                  email verification, content reporting, and moderation
+                  workflows.
+                </li>
+                <li>
+                  Launched the Android application at McPherson University,
+                  onboarding 50+ verified early users and iterating toward
+                  multi-university expansion.
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-item reveal">
+              <h4>Co-Founder &amp; Chief Technology Officer</h4>
+              <h5>April 2025 – Present</h5>
+              <p><em>Diverse Labs &bull; Nigeria</em></p>
+              <ul>
+                <li>
+                  Co-founded a technology venture delivering software
+                  products, websites, UI/UX design, and technical consulting
+                  for businesses and early-stage startups.
+                </li>
+                <li>
+                  Primary software developer and technical lead —
+                  translating client requirements into production-ready
+                  digital products across architecture, development, testing,
+                  and delivery.
+                </li>
+                <li>
+                  Delivered multiple live client products including Sauki and
+                  HerKudi, collaborating with a cross-functional team
+                  spanning engineering, design, product, and business
+                  strategy.
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-item reveal">
+              <h4>Computer Engineering Intern — Service Delivery</h4>
+              <h5>March 2025 – November 2025</h5>
+              <p><em>The Source Computers Limited &bull; Lekki, Lagos</em></p>
+              <ul>
+                <li>
+                  Supported day-to-day service delivery operations: hardware
+                  diagnostics, software installation, system configuration,
+                  and client-facing technical support across laptop and
+                  desktop environments.
+                </li>
+                <li>
+                  Performed Windows deployment and activation, BIOS
+                  configuration, driver and application installation, and
+                  endpoint protection setup for client systems.
+                </li>
+                <li>
+                  Contributed to incident triage, system maintenance
+                  documentation, upgrade deployments, logistics coordination,
+                  and service delivery reporting.
+                </li>
+              </ul>
+            </div>
+            <div class="resume-item reveal">
+              <h4>Website Developer &amp; Manager (Volunteer)</h4>
+              <h5>March 2022 – June 2025</h5>
+              <p><em>Boundless Horizons Foundation &bull; Remote</em></p>
+              <ul>
+                <li>
+                  Designed, built, and continue to manage the
+                  foundation&rsquo;s official website (<a
+                    href="https://www.bhzsfoundation.org"
+                    target="_blank"
+                    rel="noopener"
+                    style="color: #18d26e"
+                    >www.bhzsfoundation.org</a
+                  >), supporting its digital presence and community
+                  fundraising goals.
+                </li>
+                <li>
+                  Integrated donation &amp; registration forms, event updates,
+                  and SEO improvements; provide ongoing maintenance and
+                  technical support.
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-item reveal">
+              <h4>Volunteer Website Developer</h4>
+              <h5>Oct. 2024 – Present</h5>
+              <p>
+                <em
+                  >Society of the Holy Child Jesus, African Province (SHCJ)
+                  &bull; Lagos</em
+                >
+              </p>
+              <ul>
+                <li>
+                  Developing responsive organizational web portal using HTML,
+                  CSS, and JavaScript.
+                </li>
               </ul>
             </div>
           </div>
-          <p>
-            I am a full-stack software developer and Computer Science graduate from McPherson University. I combine strong problem-solving ability with product thinking, technical leadership, and hands-on software execution. I am the Founder & CTO of <strong>Kamp</strong> (kamp.ng), an anonymous campus social networking application, and Co-Founder at <strong>Diverse Labs</strong>. My technical toolkit spans Flutter, Dart, PHP, Laravel, CodeIgniter, Python, JavaScript, React, MySQL, PostgreSQL, Firebase, Supabase, and IT systems troubleshooting.
-          </p>
-        </div>
-      </div>
-
-    </div><!-- End About Me -->
-
-    <!-- ======= Counts ======= -->
-    <div class="counts container">
-
-      <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="count-box">
-            <i class="bi bi-people-fill"></i>
-            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span><span class="plus-sign">+</span>
-            <p>Years of Building</p>
-          </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-          <div class="count-box">
-            <i class="bi bi-journal-richtext"></i>
-            <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter"></span><span class="plus-sign">+</span>
-            <p>Projects Completed</p>
+        <!-- Technical Skills -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <h3 class="resume-title">Technical Skills</h3>
           </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-heart"></i>
-            <span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1" class="purecounter"></span><span class="plus-sign">+</span>
-            <p>Volunteer Hours</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-award-fill"></i>
-            <span style="font-size: 2.2rem; font-weight: 700; color: #18d26e; display: block; margin-bottom: 4px;">GMCPN</span>
-            <p>CPN Registered Member</p>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- End Counts -->
-
-    <!-- ======= Skills  ======= -->
-    <div class="skills container">
-
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-
-      <div class="row skills-content">
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill">Flutter &amp; Dart (Mobile App Dev) <i class="val">95%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">PHP, Laravel &amp; CodeIgniter <i class="val">92%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">JavaScript &amp; React.js <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Python &amp; CustomTkinter <i class="val">88%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">HTML / CSS &amp; Bootstrap <i class="val">95%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="col-12">
+            <div class="ed-groups">
+              <div class="ed-group reveal">
+                <h4><i class="bi bi-code-slash"></i>Languages &amp; Frameworks</h4>
+                <div>
+                  <span class="ed-chip">Dart (Flutter)</span>
+                  <span class="ed-chip">PHP (Laravel, CodeIgniter, Filament)</span>
+                  <span class="ed-chip">JavaScript (React, Next.js, Node.js)</span>
+                  <span class="ed-chip">Python</span>
+                  <span class="ed-chip">HTML / CSS</span>
+                  <span class="ed-chip">Java</span>
+                  <span class="ed-chip">C</span>
+                  <span class="ed-chip">Rust</span>
+                </div>
+              </div>
+              <div class="ed-group reveal">
+                <h4><i class="bi bi-database"></i>Backend, Data &amp; Integrations</h4>
+                <div>
+                  <span class="ed-chip">PostgreSQL</span>
+                  <span class="ed-chip">MongoDB</span>
+                  <span class="ed-chip">MySQL</span>
+                  <span class="ed-chip">Firebase</span>
+                  <span class="ed-chip">Supabase</span>
+                  <span class="ed-chip">REST APIs</span>
+                  <span class="ed-chip">SQL</span>
+                </div>
+              </div>
+              <div class="ed-group reveal">
+                <h4><i class="bi bi-tools"></i>Tools &amp; Platforms</h4>
+                <div>
+                  <span class="ed-chip">Git &amp; GitHub</span>
+                  <span class="ed-chip">VS Code</span>
+                  <span class="ed-chip">Android Studio</span>
+                  <span class="ed-chip">Figma</span>
+                  <span class="ed-chip">Postman</span>
+                  <span class="ed-chip">Docker</span>
+                  <span class="ed-chip">Vercel</span>
+                  <span class="ed-chip">Netlify</span>
+                  <span class="ed-chip">Render</span>
+                  <span class="ed-chip">Railway</span>
+                  <span class="ed-chip">Cloudflare</span>
+                  <span class="ed-chip">Photoshop</span>
+                </div>
+              </div>
+              <div class="ed-group reveal">
+                <h4><i class="bi bi-cpu"></i>IT &amp; Engineering</h4>
+                <div>
+                  <span class="ed-chip">Hardware Diagnostics &amp; Repair</span>
+                  <span class="ed-chip">OS Deployment &amp; Configuration</span>
+                  <span class="ed-chip">BIOS Configuration</span>
+                  <span class="ed-chip">Endpoint Protection</span>
+                  <span class="ed-chip">IT Service Delivery</span>
+                  <span class="ed-chip">Technical Support</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill">MySQL, PostgreSQL &amp; SQL <i class="val">88%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+        <!-- Featured Projects -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <h3 class="resume-title">Featured Projects</h3>
+          </div>
+          <div class="col-lg-6">
+            <div class="resume-item reveal">
+              <h4>Orphanage Management System (OMS)</h4>
+              <h5>July 2026</h5>
+              <p><em>Laravel (Filament) &bull; PHP &bull; PostgreSQL &bull; JavaScript</em></p>
+              <ul>
+                <li>
+                  Full-featured web platform for Vigilant Heart Charitable
+                  Society centralizing child welfare records, educational
+                  tracking, donor management, project logs, and inventory.
+                </li>
+                <li>
+                  Completed as a final-year Computer Science thesis with full
+                  documentation across requirements, design, implementation,
+                  testing, and evaluation.
+                </li>
+              </ul>
+            </div>
+            <div class="resume-item reveal">
+              <h4>Job Application Portal</h4>
+              <h5>December 2024</h5>
+              <p><em>PHP &bull; CodeIgniter &bull; Shield &bull; MySQL</em></p>
+              <ul>
+                <li>
+                  Complete web-based recruitment platform with secure
+                  authentication, role-based access control, job listing
+                  management, and application-status workflows.
+                </li>
+              </ul>
             </div>
           </div>
-
-          <div class="progress">
-            <span class="skill">Firebase &amp; Supabase <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="col-lg-6">
+            <div class="resume-item reveal">
+              <h4>Clinical Management System</h4>
+              <h5>July 2026</h5>
+              <p><em>Collaborative Development &bull; McPherson University</em></p>
+              <ul>
+                <li>
+                  Co-developed a digital clinical platform handling records,
+                  patient workflows, and operational information for the
+                  university health centre.
+                </li>
+                <li>
+                  Led backend architecture and data modelling through system
+                  design, integration, testing, and deployment.
+                </li>
+              </ul>
+            </div>
+            <div class="resume-item reveal">
+              <h4>Employee Payroll &amp; Management System</h4>
+              <h5>November 2024</h5>
+              <p><em>Python &bull; CustomTkinter &bull; PyInstaller</em></p>
+              <ul>
+                <li>
+                  Desktop payroll and HR tool with salary calculation,
+                  employee data management, and CSV record keeping —
+                  packaged as a standalone executable.
+                </li>
+              </ul>
             </div>
           </div>
-
-          <div class="progress">
-            <span class="skill">Git, GitHub &amp; Android Studio <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Hardware Diagnostics &amp; Windows Setup <i class="val">92%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">C, Java &amp; Rust <i class="val">65%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
         </div>
-      </div>
 
-    </div><!-- End Skills -->
-
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-
-      <div class="section-title">
-        <h2>Interests</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-code-s-slash-line" style="color: #ffbb2c"></i>
-            <h3>Software &amp; Web Coding</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-smartphone-line" style="color: #5578ff"></i>
-            <h3>Mobile App Development</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-rocket-line" style="color: #18d26e"></i>
-            <h3>Startup Founders &amp; Tech Leadership</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <i class="ri-tools-line" style="color: #11dbcf"></i>
-            <h3>Hardware Repair &amp; IT Support</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-presentation-line" style="color: #47aeff"></i>
-            <h3>Public Speaking &amp; Mentorship</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-heart-line" style="color: #e80368"></i>
-            <h3>Community Service &amp; Volunteering</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-palette-line" style="color: #e361ff"></i>
-            <h3>UI/UX &amp; Graphic Design</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-robot-line" style="color: #b2904f"></i>
-            <h3>AI &amp; Machine Learning</h3>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- End Interests -->
-
-    <!-- ======= Personal Statement & Career Goals ======= -->
-    <div class="testimonials container">
-      <div class="section-title">
-        <h2>Personal Statement &amp; Objectives</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 mb-4">
-          <div class="personal-statement-box" style="background: rgba(255,255,255,0.08); padding: 30px; border-radius: 12px; border-left: 4px solid #18d26e;">
-            <h3 class="mb-3 text-white" style="font-size: 1.3rem;">
-              <i class="bi bi-person-lines-fill text-success me-2"></i> Personal Statement
+        <!-- Leadership & Community Impact Row -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <h3 class="resume-title">
+              <i class="bi bi-star-fill text-success me-2"></i> Leadership &amp;
+              Community Impact
             </h3>
-            <p style="color: #ddd;">
-              I am passionate about lifelong learning, collaboration, and using technology to solve real-world problems. My approach is hands-on, creative, and focused on delivering sustainable value. I thrive in team environments, leading technical initiatives, and mentoring fellow developers.
-            </p>
           </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-          <div class="career-goals-box" style="background: rgba(255,255,255,0.08); padding: 30px; border-radius: 12px; border-left: 4px solid #18d26e;">
-            <h3 class="mb-3 text-white" style="font-size: 1.3rem;">
-              <i class="bi bi-bullseye text-success me-2"></i> What I'm Seeking
-            </h3>
-            <p style="color: #ddd;">
-              I am seeking full-stack software development roles, mobile engineering opportunities (Flutter/Laravel/React), or technical product collaboration where I can apply my skills in software architecture, problem-solving, and IT delivery to create high-impact software products.
-            </p>
+          <div class="col-lg-6">
+            <div class="resume-item reveal">
+              <h4>Computer Science Department Coordinator</h4>
+              <h5>2025 – 2026</h5>
+              <p>
+                <em
+                  >National Association of Computing Students (NACOS) &bull;
+                  McPherson University</em
+                >
+              </p>
+              <ul>
+                <li>
+                  Led departmental student initiatives including the Buildathon
+                  Innovation Challenge, a Laptop Clinic for student hardware
+                  support, technical mentorship, and professional development
+                  programmes.
+                </li>
+                <li>
+                  Served as the primary liaison between the student body and
+                  departmental leadership, fostering practical learning and
+                  collaboration.
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </div>
-    </div><!-- End Personal Statement & Career Goals -->
-
-  </section><!-- End About Section -->
-
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Resume</h2>
-        <p>Check My Career &amp; Education Track Record</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <h3 class="resume-title">Summary</h3>
-          <div class="resume-item pb-0">
-            <h4>Arinze Nwafor</h4>
-            <p>
-              <em>Computer Science graduate with practical experience in software development, IT support, systems troubleshooting, and digital product development. Founder &amp; CTO at Kamp, Co-Founder at Diverse Labs.</em>
-            </p>
-            <ul>
-              <li>18, Matthew Osawemen Street, Aro Ologolo Road, Lekki, Lagos</li>
-              <li>+234-810-567-5143</li>
-              <li>arinzenwafor.c@gmail.com</li>
-              <li><a href="https://linkedin.com/in/arinze-nwafor/" target="_blank">linkedin.com/in/arinze-nwafor/</a></li>
-              <li><a href="https://github.com/arinzenwafor" target="_blank">github.com/arinzenwafor</a></li>
-              <li><a href="https://kamp.ng" target="_blank">kamp.ng</a> | <a href="https://arinzenwafor.netlify.app" target="_blank">arinzenwafor.netlify.app</a></li>
-            </ul>
-          </div>
-
-          <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4>Bachelor of Science in Computer Science</h4>
-            <h5>Oct. 2023 – July 2026</h5>
-            <p><em>McPherson University, Abeokuta, Ogun State, Nigeria</em></p>
-            <p>
-              <strong>Final-Year Thesis:</strong> Design and Implementation of an Orphanage Management System: A Case Study of Vigilant Heart Charitable Society.<br>
-              <em>Relevant Coursework:</em> Data Structures &amp; Algorithms, OOP, Database Management, Discrete Math, AI &amp; Deep-Learning, Operating Systems.
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Bachelor of Science in Computer Science (First Year)</h4>
-            <h5>Oct. 2022 – July 2023</h5>
-            <p><em>Pan-Atlantic University, Lagos, Nigeria</em></p>
-            <p>
-              Completed foundational Computer Science studies with experience in programming logic and technical problem solving.
-            </p>
-          </div>
-
-          <h3 class="resume-title">Professional Membership</h3>
-          <div class="resume-item">
-            <h4>Graduate Member (GMCPN)</h4>
-            <h5>2026 – Present</h5>
-            <p><em>Computer Professionals (Registration Council of Nigeria)</em></p>
-            <p>
-              Registered graduate member under Nigeria's official computing regulatory body (CPN).
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <h3 class="resume-title">Professional &amp; Entrepreneurial Experience</h3>
-          
-          <div class="resume-item">
-            <h4>Founder &amp; CTO — Full-Stack Mobile Developer</h4>
-            <h5>June 2026 – Present</h5>
-            <p><em>Kamp &bull; kamp.ng &bull; Nigeria</em></p>
-            <ul>
-              <li>Founded and lead the technical development of Kamp, a live anonymous campus-focused social networking platform for verified university students.</li>
-              <li>Primary product builder leading product strategy, system architecture, UI/UX design, Flutter mobile development, backend services, and deployment.</li>
-              <li>Built core features: anonymous posts, comments, reactions, campus feeds, direct messaging, notifications, institutional email verification, and content moderation workflows.</li>
-              <li>Acquired 50+ early users at McPherson University and preparing multi-university expansion.</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <h4>Co-Founder &amp; Chief Technology Officer</h4>
-            <h5>April 2025 – Present</h5>
-            <p><em>Diverse Labs &bull; Nigeria</em></p>
-            <ul>
-              <li>Co-founded technology and product-development venture delivering software solutions, web platforms, and digital products for businesses and startups.</li>
-              <li>Lead hands-on software developer translating client requirements into functional digital products, including live products such as HerKudi.</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <h4>Computer Engineering Intern — Service Delivery</h4>
-            <h5>2025 – 2026</h5>
-            <p><em>The Source Computers Limited &bull; Lekki, Lagos</em></p>
-            <ul>
-              <li>Supported service-delivery and engineering operations through computer hardware diagnostics, technical troubleshooting, software installation, and client tech support.</li>
-              <li>Handled Windows deployment and activation, BIOS configuration, driver installation, and endpoint security protection.</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <h4>Website Developer &amp; Manager (Volunteer)</h4>
-            <h5>March 2022 – Present</h5>
-            <p><em>Boundless Horizons Foundation &bull; Remote</em></p>
-            <ul>
-              <li>Designed, developed, and manage official website (<a href="https://www.bhzsfoundation.org" target="_blank" style="color: #18d26e;">www.bhzsfoundation.org</a>).</li>
-              <li>Integrated donation &amp; registration forms, event updates, responsive layout, and SEO optimization.</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <h4>Volunteer Website Developer</h4>
-            <h5>Oct. 2024 – Present</h5>
-            <p><em>Society of the Holy Child Jesus, African Province (SHCJ) &bull; Lagos</em></p>
-            <ul>
-              <li>Developing responsive organizational web portal using HTML, CSS, and JavaScript.</li>
-            </ul>
+          <div class="col-lg-6">
+            <div class="resume-item reveal">
+              <h4>Assistant Social Worker (Volunteer)</h4>
+              <h5>July 2024 – Oct. 2024</h5>
+              <p>
+                <em
+                  >Vigilant Heart Charitable Society (VHCS) &bull; Lekki,
+                  Lagos</em
+                >
+              </p>
+              <ul>
+                <li>
+                  Managed record-keeping for children's welfare, educational
+                  progress, and orphanage operational documentation.
+                </li>
+                <li>
+                  Over 500 total hours contributed across volunteer initiatives
+                  and community technology projects.
+                </li>
+              </ul>
+            </div>
+            <div class="resume-item reveal">
+              <h4>Web Manager &amp; Technical Officer (Volunteer)</h4>
+              <h5>2025 – Present</h5>
+              <p>
+                <em
+                  >Vigilant Heart Charitable Society (VHCS) &bull; Lekki,
+                  Lagos</em
+                >
+              </p>
+              <ul>
+                <li>
+                  Serve as web manager and technical officer — owning the
+                  organization&rsquo;s websites, systems, and software end
+                  to end.
+                </li>
+                <li>
+                  Run day-to-day technical tasks: updates, troubleshooting,
+                  and user support — including the Orphanage Management
+                  System (OMS) behind welfare operations.
+                </li>
+                <li>
+                  Support operations through record management,
+                  documentation, technology assistance, and coordination with
+                  staff, visitors, donors, and stakeholders.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+    <!-- End Resume Section -->
 
-      <!-- Leadership & Community Impact Row -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <h3 class="resume-title"><i class="bi bi-star-fill text-success me-2"></i> Leadership &amp; Community Impact</h3>
-        </div>
-        <div class="col-lg-6">
-          <div class="resume-item">
-            <h4>Computer Science Department Coordinator</h4>
-            <h5>2025 – 2026</h5>
-            <p><em>National Association of Computing Students (NACOS) &bull; McPherson University</em></p>
-            <ul>
-              <li>Led student-focused academic, technical, innovation, and professional development initiatives across the CS department.</li>
-              <li>Organized and supported the Buildathon Innovation Challenge, technical mentorship, personal guidance, and the Laptop Clinic initiative.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="resume-item">
-            <h4>Assistant Social Worker (Volunteer)</h4>
-            <h5>July 2024 – Oct. 2024</h5>
-            <p><em>Vigilant Heart Charitable Society (VHCS) &bull; Lekki, Lagos</em></p>
-            <ul>
-              <li>Managed record-keeping for children's welfare, educational progress, and orphanage operational documentation.</li>
-              <li>Over 500 total hours contributed across volunteer initiatives and community technology projects.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Resume Section -->
-
-  <!-- ======= Projects / Portfolio Section ======= -->
-  <!-- <section id="projects" class="portfolio">
+    <!-- ======= Projects / Portfolio Section (hidden) ======= -->
+    <section id="projects" class="portfolio" hidden aria-hidden="true" style="display: none">
     <div class="container">
 
       <div class="section-title">
@@ -482,22 +903,22 @@
 
       <div class="row">
         <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">Mobile Apps</li>
-            <li data-filter=".filter-web">Web Apps</li>
-            <li data-filter=".filter-system">Systems &amp; Software</li>
+          <ul id="portfolio-flters" role="tablist" aria-label="Filter projects">
+            <li data-filter="*" class="filter-active" role="tab" tabindex="0" aria-selected="true">All</li>
+            <li data-filter=".filter-app" role="tab" tabindex="0" aria-selected="false">Mobile Apps</li>
+            <li data-filter=".filter-web" role="tab" tabindex="0" aria-selected="false">Web Apps</li>
+            <li data-filter=".filter-system" role="tab" tabindex="0" aria-selected="false">Systems &amp; Software</li>
           </ul>
         </div>
       </div>
 
-      <div class="row portfolio-container"> -->
+      <div class="row portfolio-container">
 
-        <!-- Kamp -->
-        <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+    <!-- Kamp -->
+    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
           <div class="portfolio-wrap" style="background: rgba(16, 23, 42, 0.85); border: 1px solid rgba(24,210,110,0.3); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
             <div class="portfolio-img" style="height: 180px; width: 100%; overflow: hidden; position: relative;">
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Kamp" style="transition: transform 0.5s ease;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Kamp" style="transition: transform 0.5s ease;">
               <div style="position: absolute; top: 12px; right: 12px; z-index: 2;">
                 <span class="badge bg-success shadow-sm" style="font-size: 0.75rem;"><i class="bi bi-phone me-1"></i> Mobile App</span>
               </div>
@@ -516,19 +937,19 @@
                 </div>
               </div>
               <div>
-                <a href="https://kamp.ng" target="_blank" class="btn btn-sm w-100 rounded-pill" style="background: rgba(24,210,110,0.1); color: #18d26e; border: 1px solid #18d26e; transition: all 0.3s ease;">
+                <a href="https://kamp.ng" target="_blank" rel="noopener" class="btn btn-sm w-100 rounded-pill" style="background: rgba(24,210,110,0.1); color: #18d26e; border: 1px solid #18d26e; transition: all 0.3s ease;">
                   <i class="bi bi-globe me-1"></i> Visit kamp.ng
                 </a>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
-        <!-- Orphanage Management System -->
-        <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+    <!-- Orphanage Management System -->
+    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
           <div class="portfolio-wrap" style="background: rgba(16, 23, 42, 0.85); border: 1px solid rgba(24,210,110,0.3); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
             <div class="portfolio-img" style="height: 180px; width: 100%; overflow: hidden; position: relative;">
-              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Orphanage Management" style="transition: transform 0.5s ease;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Orphanage Management" style="transition: transform 0.5s ease;">
               <div style="position: absolute; top: 12px; right: 12px; z-index: 2;">
                 <span class="badge bg-primary shadow-sm" style="font-size: 0.75rem;"><i class="bi bi-building me-1"></i> Web App</span>
               </div>
@@ -547,19 +968,19 @@
                 </div>
               </div>
               <div>
-                <a href="https://github.com/arinzenwafor" target="_blank" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                <a href="https://github.com/arinzenwafor" target="_blank" rel="noopener" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
                   <i class="bi bi-github me-1"></i> View Repository
                 </a>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
-        <!-- HerKudi -->
-        <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+    <!-- HerKudi -->
+    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
           <div class="portfolio-wrap" style="background: rgba(16, 23, 42, 0.85); border: 1px solid rgba(24,210,110,0.3); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
             <div class="portfolio-img" style="height: 180px; width: 100%; overflow: hidden; position: relative;">
-              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="HerKudi" style="transition: transform 0.5s ease;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="HerKudi" style="transition: transform 0.5s ease;">
               <div style="position: absolute; top: 12px; right: 12px; z-index: 2;">
                 <span class="badge bg-info text-white shadow-sm" style="font-size: 0.75rem;"><i class="bi bi-credit-card me-1"></i> Web App</span>
               </div>
@@ -578,19 +999,19 @@
                 </div>
               </div>
               <div>
-                <a href="https://github.com/arinzenwafor" target="_blank" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                <a href="https://github.com/arinzenwafor" target="_blank" rel="noopener" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
                   <i class="bi bi-github me-1"></i> View Code
                 </a>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
-        <!-- Clinical Management System -->
-        <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+    <!-- Clinical Management System -->
+    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
           <div class="portfolio-wrap" style="background: rgba(16, 23, 42, 0.85); border: 1px solid rgba(24,210,110,0.3); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
             <div class="portfolio-img" style="height: 180px; width: 100%; overflow: hidden; position: relative;">
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Clinic Management" style="transition: transform 0.5s ease;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Clinic Management" style="transition: transform 0.5s ease;">
               <div style="position: absolute; top: 12px; right: 12px; z-index: 2;">
                 <span class="badge bg-warning text-dark shadow-sm" style="font-size: 0.75rem;"><i class="bi bi-hospital me-1"></i> Healthcare</span>
               </div>
@@ -609,19 +1030,19 @@
                 </div>
               </div>
               <div>
-                <a href="https://github.com/arinzenwafor" target="_blank" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                <a href="https://github.com/arinzenwafor" target="_blank" rel="noopener" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
                   <i class="bi bi-github me-1"></i> View Repository
                 </a>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
-        <!-- Job Application Portal -->
-        <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+    <!-- Job Application Portal -->
+    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
           <div class="portfolio-wrap" style="background: rgba(16, 23, 42, 0.85); border: 1px solid rgba(24,210,110,0.3); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
             <div class="portfolio-img" style="height: 180px; width: 100%; overflow: hidden; position: relative;">
-              <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Job Portal" style="transition: transform 0.5s ease;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Job Portal" style="transition: transform 0.5s ease;">
               <div style="position: absolute; top: 12px; right: 12px; z-index: 2;">
                 <span class="badge bg-secondary shadow-sm" style="font-size: 0.75rem;"><i class="bi bi-briefcase me-1"></i> Web App</span>
               </div>
@@ -640,19 +1061,19 @@
                 </div>
               </div>
               <div>
-                <a href="https://github.com/arinzenwafor" target="_blank" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                <a href="https://github.com/arinzenwafor" target="_blank" rel="noopener" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
                   <i class="bi bi-github me-1"></i> View Repository
                 </a>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
-        <!-- Boundless Horizons Foundation -->
-        <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+    <!-- Boundless Horizons Foundation -->
+    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
           <div class="portfolio-wrap" style="background: rgba(16, 23, 42, 0.85); border: 1px solid rgba(24,210,110,0.3); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
             <div class="portfolio-img" style="height: 180px; width: 100%; overflow: hidden; position: relative;">
-              <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Foundation" style="transition: transform 0.5s ease;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Foundation" style="transition: transform 0.5s ease;">
               <div style="position: absolute; top: 12px; right: 12px; z-index: 2;">
                 <span class="badge bg-success shadow-sm" style="font-size: 0.75rem;"><i class="bi bi-globe me-1"></i> Volunteer</span>
               </div>
@@ -671,19 +1092,19 @@
                 </div>
               </div>
               <div>
-                <a href="https://www.bhzsfoundation.org" target="_blank" class="btn btn-sm w-100 rounded-pill" style="background: rgba(24,210,110,0.1); color: #18d26e; border: 1px solid #18d26e; transition: all 0.3s ease;">
+                <a href="https://www.bhzsfoundation.org" target="_blank" rel="noopener" class="btn btn-sm w-100 rounded-pill" style="background: rgba(24,210,110,0.1); color: #18d26e; border: 1px solid #18d26e; transition: all 0.3s ease;">
                   <i class="bi bi-globe me-1"></i> Visit Website
                 </a>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
-        <!-- Employee Payroll System -->
-        <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-system">
+    <!-- Employee Payroll System -->
+    <div class="col-lg-4 col-md-6 portfolio-item filter-system">
           <div class="portfolio-wrap" style="background: rgba(16, 23, 42, 0.85); border: 1px solid rgba(24,210,110,0.3); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
             <div class="portfolio-img" style="height: 180px; width: 100%; overflow: hidden; position: relative;">
-              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Payroll" style="transition: transform 0.5s ease;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 h-100 object-fit-cover" alt="Payroll" style="transition: transform 0.5s ease;">
               <div style="position: absolute; top: 12px; right: 12px; z-index: 2;">
                 <span class="badge bg-dark border border-secondary shadow-sm" style="font-size: 0.75rem;"><i class="bi bi-laptop me-1"></i> System</span>
               </div>
@@ -702,7 +1123,7 @@
                 </div>
               </div>
               <div>
-                <a href="https://github.com/arinzenwafor" target="_blank" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+                <a href="https://github.com/arinzenwafor" target="_blank" rel="noopener" class="btn btn-sm w-100 rounded-pill" style="background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
                   <i class="bi bi-github me-1"></i> View Code
                 </a>
               </div>
@@ -713,102 +1134,207 @@
       </div>
 
     </div> 
-  </section>--><!-- End Projects Section -->
+  </section>
+  <!-- End Projects Section -->
 
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="row mt-4 align-items-center">
-        
-        <!-- Left Side: Let's Talk & Info -->
-        <div class="col-lg-5 contact-left mb-5 mb-lg-0" data-aos="fade-right">
-          <h1 class="display-4 fw-bold mb-3">Let's Talk.</h1>
-          <p class="mb-5" style="color: #bbb; font-size: 1.1rem; line-height: 1.7;">
-            I'm currently available for new opportunities, startup collaborations, and freelance development projects. Reach out and let's build something amazing together.
-          </p>
-          
-          <div class="info-item d-flex align-items-center mb-4">
-            <div class="icon-wrap me-3">
-              <i class="bx bx-map"></i>
-            </div>
-            <div>
-              <h4 class="mb-1 text-white fw-bold">Location</h4>
-              <p class="mb-0" style="color: #ccc;">Lekki, Lagos, Nigeria</p>
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row align-items-start">
+          <!-- Left Side: statement + details -->
+          <div class="col-lg-5 contact-left mb-5 mb-lg-0">
+            <p class="ed-kicker">Contact</p>
+            <h2 class="contact-title">Tell me what you're building.</h2>
+            <p class="ed-body">
+              I'm taking on freelance projects, full-time engineering roles, and
+              technical co-founder conversations. A rough problem, a scope, or a
+              deadline is enough to start — I'll reply with honest next steps.
+            </p>
+
+            <dl class="ed-facts">
+              <div>
+                <dt>Location</dt>
+                <dd>Lekki, Lagos, Nigeria</dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd>
+                  <a href="mailto:arinzenwafor.c@gmail.com"
+                    >arinzenwafor.c@gmail.com</a
+                  >
+                </dd>
+              </div>
+              <div>
+                <dt>Phone / WhatsApp</dt>
+                <dd>
+                  <a href="tel:+2348105675143">+234-810-567-5143</a>
+                </dd>
+              </div>
+            </dl>
+
+            <p class="contact-note">Replies usually land within 24–48 hours.</p>
+
+            <div class="social-links contact-social">
+              <a
+                href="https://github.com/arinzenwafor"
+                target="_blank" rel="noopener"
+                aria-label="GitHub"
+                ><i class="bi bi-github" aria-hidden="true"></i
+                ><span class="label">GitHub</span></a
+              >
+              <a
+                href="https://www.linkedin.com/in/arinzenwafor/"
+                target="_blank" rel="noopener"
+                aria-label="LinkedIn"
+                ><i class="bi bi-linkedin" aria-hidden="true"></i
+                ><span class="label">Connect</span></a
+              >
+              <a
+                href="https://kamp.ng"
+                target="_blank" rel="noopener"
+                aria-label="Kamp Platform"
+                ><i class="bi bi-globe" aria-hidden="true"></i
+                ><span class="label">Kamp</span></a
+              >
+              <a
+                href="mailto:arinzenwafor.c@gmail.com"
+                aria-label="Email Me"
+                ><i class="bi bi-envelope" aria-hidden="true"></i
+                ><span class="label">Hire Me</span></a
+              >
+              <a
+                href="https://lnk.bio/arinzenwafor"
+                target="_blank" rel="noopener"
+                aria-label="Linktree"
+                ><i class="bi bi-link" aria-hidden="true"></i
+                ><span class="label">Links</span></a
+              >
             </div>
           </div>
 
-          <div class="info-item d-flex align-items-center mb-4">
-            <div class="icon-wrap me-3">
-              <i class="bx bx-envelope"></i>
-            </div>
-            <div>
-              <h4 class="mb-1 text-white fw-bold">Email</h4>
-              <p class="mb-0"><a href="mailto:arinzenwafor.c@gmail.com" style="color: #ccc;">arinzenwafor.c@gmail.com</a></p>
-            </div>
-          </div>
+          <!-- Right Side: ledger-style contact form -->
+          <div class="col-lg-7">
+            <form
+              class="contact-form"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              aria-label="Contact form"
+              novalidate
+            >
+              <!-- Honeypot spam trap -->
+              <input
+                type="checkbox"
+                name="_gotcha"
+                style="display: none !important"
+                tabindex="-1"
+                autocomplete="off"
+              />
 
-          <div class="info-item d-flex align-items-center mb-5">
-            <div class="icon-wrap me-3">
-              <i class="bx bx-phone-call"></i>
-            </div>
-            <div>
-              <h4 class="mb-1 text-white fw-bold">Call / WhatsApp</h4>
-              <p class="mb-0" style="color: #ccc;">+234-810-567-5143</p>
-            </div>
-          </div>
+              <div class="field">
+                <label for="contact-name">Name</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                  aria-describedby="name-error"
+                />
+                <span class="invalid-feedback" id="name-error"></span>
+              </div>
 
-          <div class="social-links-new">
-            <a href="https://github.com/arinzenwafor" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-            <a href="https://linkedin.com/in/arinze-nwafor/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="https://kamp.ng" target="_blank" title="Kamp.ng"><i class="bi bi-globe"></i></a>
-            <a href="https://lnk.bio/arinze-nwafor" target="_blank" title="Linktree"><i class="bi bi-link"></i></a>
+              <div class="field">
+                <label for="contact-email">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="you@domain.com"
+                  autocomplete="email"
+                  required
+                  aria-describedby="email-error"
+                />
+                <span class="invalid-feedback" id="email-error"></span>
+              </div>
+
+              <div class="field">
+                <label for="contact-subject">Subject</label>
+                <input
+                  type="text"
+                  id="contact-subject"
+                  name="subject"
+                  placeholder="What is this about?"
+                  required
+                  aria-describedby="subject-error"
+                />
+                <span class="invalid-feedback" id="subject-error"></span>
+              </div>
+
+              <div class="field">
+                <label for="contact-message">Message</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="5"
+                  maxlength="2000"
+                  placeholder="What are you building, and what's the deadline?"
+                  required
+                  aria-describedby="message-error"
+                ></textarea>
+                <span class="char-count" id="message-count" aria-hidden="true"
+                  >0 / 2000</span
+                >
+                <span class="invalid-feedback" id="message-error"></span>
+              </div>
+
+              <div class="form-status" aria-live="polite" aria-atomic="true"></div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-submit" aria-busy="false">
+                  <span class="btn-text">Send message</span>
+                  <span class="btn-loading" aria-hidden="true">
+                    <svg class="spinner" viewBox="0 0 24 24">
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        fill="none"
+                        stroke-dasharray="31.4 31.4"
+                        stroke-linecap="round"
+                      ></circle>
+                    </svg>
+                    Sending
+                  </span>
+                </button>
+                <p class="form-alt">
+                  Prefer email?
+                  <a href="mailto:arinzenwafor.c@gmail.com">Send it directly</a>
+                </p>
+              </div>
+            </form>
           </div>
         </div>
-
-        <!-- Right Side: Contact Form -->
-        <div class="col-lg-7" data-aos="fade-left">
-          <form class="php-email-form" name="contact">
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required />
-              </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" name="email" class="form-control" placeholder="Your Email" required />
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" name="subject" class="form-control" placeholder="Subject" required />
-            </div>
-            <div class="form-group mt-4">
-              <textarea name="message" class="form-control" rows="6" placeholder="Your Message" required></textarea>
-            </div>
-            <div class="text-end mt-4">
-              <button type="submit">
-                Send Message <i class="bx bx-send ms-1"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-        
       </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <div class="credits">
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
-  </section><!-- End Contact Section -->
 
-  <div class="credits">
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-  </div>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/js/contact-form.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/js/contact-demo.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

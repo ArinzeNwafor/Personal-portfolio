@@ -156,40 +156,42 @@
   }
 
   /**
-   * Testimonials slider
+   * Testimonials slider (guarded: section repurposed, element may not exist)
    */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
+  if (document.querySelector('.testimonials-slider')) {
+    new Swiper('.testimonials-slider', {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
       },
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
 
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
       }
-    }
-  });
+    });
+  }
 
   /**
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
+    if (portfolioContainer && !portfolioContainer.closest('[hidden]')) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
@@ -213,37 +215,144 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox (guarded: only if elements exist)
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
+  if (document.querySelector('.portfolio-lightbox')) {
+    const portfolioLightbox = GLightbox({
+      selector: '.portfolio-lightbox'
+    });
+  }
+
+  /**
+   * Initiate portfolio details lightbox (guarded)
+   */
+  if (document.querySelector('.portfolio-details-lightbox')) {
+    const portfolioDetailsLightbox = GLightbox({
+      selector: '.portfolio-details-lightbox',
+      width: '90%',
+      height: '90vh'
+    });
+  }
+
+  /**
+   * Portfolio details slider (guarded)
+   */
+  if (document.querySelector('.portfolio-details-slider')) {
+    new Swiper('.portfolio-details-slider', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
+
+  /**
+   * Keyboard support for portfolio filters (a11y)
+   */
+  const filterTabs = document.querySelectorAll('#portfolio-flters li');
+  filterTabs.forEach((tab) => {
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        tab.click();
+      }
+    });
+    tab.addEventListener('click', () => {
+      filterTabs.forEach((t) => t.setAttribute('aria-selected', 'false'));
+      tab.setAttribute('aria-selected', 'true');
+    });
   });
 
   /**
-   * Initiate portfolio details lightbox 
+   * Keyboard support for mobile nav toggle (a11y, since toggle is <i>)
    */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
+  const navToggle = document.querySelector('.mobile-nav-toggle');
+  if (navToggle) {
+    navToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        navToggle.click();
+      }
+    });
+  }
+
+  /**
+   * Hero intro animation: split name into letters, then reveal
+   */
+  const heroNameLink = document.querySelector('#header h1 a');
+  if (heroNameLink && !heroNameLink.querySelector('.hero-char')) {
+    const name = heroNameLink.textContent;
+    heroNameLink.setAttribute('aria-label', name);
+    heroNameLink.textContent = '';
+    [...name].forEach((ch, i) => {
+      const s = document.createElement('span');
+      s.className = 'hero-char';
+      s.setAttribute('aria-hidden', 'true');
+      s.style.setProperty('--i', i);
+      s.textContent = ch === ' ' ? '\u00A0' : ch;
+      heroNameLink.appendChild(s);
+    });
+  }
+  const revealHero = () => document.body.classList.add('hero-loaded');
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => requestAnimationFrame(() => requestAnimationFrame(revealHero)));
+    setTimeout(revealHero, 1200); // fallback
+  } else {
+    window.addEventListener('load', revealHero);
+    setTimeout(revealHero, 1200); // fallback
+  }
+
+  /**
+   * Editorial ledes: split into words for the staggered rise
+   */
+  document.querySelectorAll('.ed-lede').forEach((lede) => {
+    if (lede.querySelector('.ed-w')) return;
+    const text = lede.textContent.trim().replace(/\s+/g, ' ');
+    lede.setAttribute('aria-label', text);
+    lede.textContent = '';
+    text.split(' ').forEach((word, i, arr) => {
+      const s = document.createElement('span');
+      s.className = 'ed-w';
+      s.setAttribute('aria-hidden', 'true');
+      s.style.setProperty('--i', i);
+      s.textContent = word;
+      lede.appendChild(s);
+      if (i < arr.length - 1) lede.appendChild(document.createTextNode(' '));
+    });
   });
 
   /**
-   * Portfolio details slider
+   * Scroll reveals for About stats, stack groups and Now items
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  const revealSelectors = ['.reveal', '#about .reveal-blur', '#about .reveal-line'];
+  const revealEls = document.querySelectorAll(revealSelectors.join(', '));
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const revealIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach((el) => {
+      const ownSel = revealSelectors.find((sel) => el.matches(sel));
+      const siblings = [...el.parentElement.children].filter((child) =>
+        child.matches(ownSel)
+      );
+      el.style.setProperty('--r', siblings.indexOf(el));
+      revealIO.observe(el);
+    });
+  } else {
+    revealEls.forEach((el) => el.classList.add('in-view'));
+  }
 
   /**
    * Initiate Pure Counter 
