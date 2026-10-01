@@ -1,100 +1,199 @@
 /**
- * scroll-anim.js  v3
+ * scroll-anim.js  v4
  *
- * Uses MutationObserver to watch for when main.js adds the .section-show
- * class to a section. This is the most reliable trigger — it fires AFTER
- * the section is visible in the DOM, avoiding all iOS timing issues.
+ * Two distinct animation modes:
  *
- * Chip animations are handled separately: when an ed-group fades in,
- * its child ed-chip spans are staggered individually.
+ * 1. ENTRANCE mode (#about, #contact):
+ *    MutationObserver watches for .section-show. When it fires, all
+ *    [data-anim] children animate in sequentially.
+ *
+ * 2. SCROLL-WITHIN mode (#resume):
+ *    After .section-show is added, IntersectionObserver is set up on
+ *    each [data-anim] element individually. They animate in as the user
+ *    scrolls — one by one, section by section.
+ *    This is safe because the section is already open (overflow:visible)
+ *    so elements are genuinely in the viewport when IO fires.
+ *
+ * 3. CHIP stagger:
+ *    When any .reveal or [data-anim] that contains .ed-chip spans becomes
+ *    visible, chips stagger in at 40ms each.
  */
 (function () {
   'use strict';
 
-  // Skip for reduced-motion — CSS already keeps everything visible
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var STAGGER = 90; // ms between elements
+  /* ─────────────────────────────────────────────
+     Helpers
+  ───────────────────────────────────────────── */
 
-  /**
-   * Animate all [data-anim] children of a section in.
-   * Also handles ed-chip children inside ed-group elements.
-   */
-  function playSection(section) {
-    // Collect direct [data-anim] elements
-    var animEls = Array.from(section.querySelectorAll('[data-anim]'));
-    if (!animEls.length) return;
+  function animateIn(el) {
+    if (el.hasAttribute('data-anim-in')) return;
+    el.setAttribute('data-anim-in', '');
+    staggerChips(el);
+  }
+
+  function resetEl(el) {
+    el.removeAttribute('data-anim-in');
+    el.querySelectorAll('.chip-anim, .chip-anim-in').forEach(function (c) {
+      c.classList.remove('chip-anim', 'chip-anim-in');
+    });
+  }
+
+  /** Stagger .ed-chip children of an element after it animates in */
+  function staggerChips(parent) {
+    var chips = parent.querySelectorAll('.ed-chip');
+    if (!chips.length) return;
+    chips.forEach(function (chip, i) {
+      chip.classList.add('chip-anim');
+      setTimeout(function () {
+        chip.classList.add('chip-anim-in');
+      }, 80 + i * 40);
+    });
+  }
+
+  /** Also stagger chips inside .reveal groups (About section) */
+  function hookRevealChips() {
+    document.querySelectorAll('.reveal').forEach(function (group) {
+      var chips = group.querySelectorAll('.ed-chip');
+      if (!chips.length) return;
+
+      // When the group gets .in-view (added by main.js IO), stagger its chips
+      var mo = new MutationObserver(function () {
+        if (!group.classList.contains('in-view')) return;
+        mo.disconnect();
+        chips.forEach(function (chip, i) {
+          chip.classList.add('chip-anim');
+          setTimeout(function () {
+            chip.classList.add('chip-anim-in');
+          }, 60 + i * 40);
+        });
+      });
+      mo.observe(group, { attributes: true, attributeFilter: ['class'] });
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     ENTRANCE mode — animate all at once on open
+     Used for: #about, #contact (and any other section)
+  ───────────────────────────────────────────── */
+
+  function runEntranceMode(section) {
+    var els = Array.from(section.querySelectorAll('[data-anim]'));
+    if (!els.length) return;
 
     var delay = 0;
-
-    animEls.forEach(function (el) {
-      // Skip if already animated
+    els.forEach(function (el) {
       if (el.hasAttribute('data-anim-in')) return;
-
       (function (element, d) {
-        setTimeout(function () {
-          element.setAttribute('data-anim-in', '');
-
-          // If this is an ed-group, stagger its chips too
-          var chips = element.querySelectorAll('.ed-chip');
-          chips.forEach(function (chip, i) {
-            chip.classList.add('chip-anim');
-            setTimeout(function () {
-              chip.classList.add('chip-anim-in');
-            }, 60 + i * 40);
-          });
-
-        }, d);
+        setTimeout(function () { animateIn(element); }, d);
       }(el, delay));
-
-      delay += STAGGER;
+      delay += 80;
     });
   }
 
-  /**
-   * Reset animations so they replay when revisiting a section.
-   */
-  function resetSection(section) {
-    section.querySelectorAll('[data-anim-in]').forEach(function (el) {
-      el.removeAttribute('data-anim-in');
+  /* ─────────────────────────────────────────────
+     SCROLL-WITHIN mode — each item animates when
+     it scrolls into view.
+     Used for: #resume
+  ───────────────────────────────────────────── */
+
+  var scrollIOs = []; // keep refs so we can disconnect on reset
+
+  function runScrollWithinMode(section) {
+    var els = Array.from(section.querySelectorAll('[data-anim]'));
+    if (!els.length) return;
+
+    if (!('IntersectionObserver' in window) || reducedMotion) {
+      els.forEach(animateIn);
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        animateIn(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -60px 0px'
     });
-    section.querySelectorAll('.chip-anim-in').forEach(function (chip) {
-      chip.classList.remove('chip-anim-in');
+
+    els.forEach(function (el) {
+      if (!el.hasAttribute('data-anim-in')) io.observe(el);
     });
-    section.querySelectorAll('.chip-anim').forEach(function (chip) {
-      chip.classList.remove('chip-anim');
+
+    scrollIOs.push({ section: section, io: io });
+  }
+
+  function teardownScrollWithin(section) {
+    scrollIOs = scrollIOs.filter(function (entry) {
+      if (entry.section !== section) return true;
+      entry.io.disconnect();
+      return false;
     });
   }
 
-  // Watch every section for the .section-show class being added/removed
-  var sections = Array.from(document.querySelectorAll('section[id]'));
+  /* ─────────────────────────────────────────────
+     MutationObserver — watches each section for
+     .section-show being added/removed
+  ───────────────────────────────────────────── */
 
-  sections.forEach(function (section) {
-    var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
-        if (mutation.attributeName !== 'class') return;
+  var SCROLL_WITHIN_SECTIONS = ['resume'];
 
-        var hasShow = section.classList.contains('section-show');
+  function onSectionShow(section) {
+    var id = section.id;
+    if (SCROLL_WITHIN_SECTIONS.indexOf(id) !== -1) {
+      runScrollWithinMode(section);
+    } else {
+      runEntranceMode(section);
+    }
+  }
 
-        if (hasShow) {
-          playSection(section);
+  function onSectionHide(section) {
+    var id = section.id;
+    // Reset data-anim elements so they replay next visit
+    section.querySelectorAll('[data-anim]').forEach(resetEl);
+
+    if (SCROLL_WITHIN_SECTIONS.indexOf(id) !== -1) {
+      teardownScrollWithin(section);
+    }
+  }
+
+  document.querySelectorAll('section[id]').forEach(function (section) {
+    var mo = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        if (m.attributeName !== 'class') return;
+        if (section.classList.contains('section-show')) {
+          onSectionShow(section);
         } else {
-          resetSection(section);
+          onSectionHide(section);
         }
       });
     });
-
-    observer.observe(section, { attributes: true });
+    mo.observe(section, { attributes: true });
   });
 
-  // Also handle the case where the page loads directly to a hash
+  /* ─────────────────────────────────────────────
+     Handle direct URL hash on page load
+  ───────────────────────────────────────────── */
   window.addEventListener('load', function () {
     if (window.location.hash) {
       var sec = document.querySelector(window.location.hash);
       if (sec && sec.classList.contains('section-show')) {
-        playSection(sec);
+        onSectionShow(sec);
       }
     }
+    // Hook chip stagger into About's .reveal elements
+    hookRevealChips();
   });
+
+  // Reduced motion fallback — make all data-anim elements immediately visible
+  if (reducedMotion) {
+    document.querySelectorAll('[data-anim]').forEach(function (el) {
+      el.setAttribute('data-anim-in', '');
+    });
+  }
 
 }());
