@@ -1,106 +1,91 @@
 /**
- * scroll-anim.js
- * iOS-safe entrance animations for Resume & Contact sections.
+ * scroll-anim.js  v2
+ * Entrance animations for all sections.
  *
- * Strategy:
- *   - Observes [data-anim] elements with IntersectionObserver.
- *   - The observer root is the scrolling document, so elements are checked
- *     once they are visible on screen — after the section has fully opened.
- *   - Stamps [data-anim-in] to trigger CSS transitions (opacity + transform only,
- *     GPU-composited, safe on iOS Safari).
- *   - Stagger is applied via --anim-delay CSS custom property (ms integer).
- *   - Respects prefers-reduced-motion (CSS handles instant-show).
- *   - Runs once per element (unobserves after trigger).
+ * Approach:
+ *   Rather than fighting IntersectionObserver (unreliable on iOS Safari for
+ *   elements inside position:absolute sections), we hook directly into the
+ *   nav-link click that opens each section and fire animations with explicit
+ *   timeouts — no observer, no race conditions.
+ *
+ *   For the About section the existing .reveal / .reveal-blur / .reveal-line
+ *   system is left intact. This file only handles [data-anim] elements.
+ *
+ *   CSS handles the actual transition:
+ *     [data-anim]       → opacity:0; transform: initial-offset
+ *     [data-anim-in]    → opacity:1; transform: none; transition: ...
  */
 (function () {
   'use strict';
 
-  // Bail out completely for reduced-motion users (CSS already shows everything)
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('[data-anim]').forEach(function (el) {
-      el.setAttribute('data-anim-in', '');
-    });
-    return;
-  }
+  /* ── Reduced-motion: skip everything, CSS keeps elements visible ── */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Bail gracefully if IntersectionObserver is unavailable (very old browsers)
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('[data-anim]').forEach(function (el) {
-      el.setAttribute('data-anim-in', '');
+  /* ── Stagger constants ── */
+  var SECTION_OPEN_DELAY = 120;  // ms — let the section CSS transition begin
+  var ITEM_STAGGER       = 80;   // ms between consecutive elements
+
+  /**
+   * Animate all [data-anim] children inside a given section element.
+   * Elements are sorted by their vertical position so they cascade top→bottom.
+   */
+  function animateSection(sectionEl) {
+    if (!sectionEl) return;
+
+    var els = Array.from(sectionEl.querySelectorAll('[data-anim]'));
+    if (!els.length) return;
+
+    /* Sort top → bottom so stagger flows naturally down the page */
+    els.sort(function (a, b) {
+      return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
     });
-    return;
+
+    els.forEach(function (el, i) {
+      /* Skip elements already animated */
+      if (el.hasAttribute('data-anim-in')) return;
+
+      setTimeout(function () {
+        el.setAttribute('data-anim-in', '');
+      }, SECTION_OPEN_DELAY + i * ITEM_STAGGER);
+    });
   }
 
   /**
-   * Assign stagger delays to a group of sibling elements sharing the same
-   * parent, so they cascade in one by one rather than all popping at once.
+   * Reset a section's animations so they replay on next visit.
+   * (Optional: remove this if you want fire-once behaviour.)
    */
-  function assignStagger(elements) {
-    var BASE_DELAY = 0;      // first element starts immediately
-    var STEP = 80;           // ms between each successive element
-
-    // Group by parent so siblings within different sections don't interfere
-    var groups = new Map();
-    elements.forEach(function (el) {
-      var key = el.parentElement;
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push(el);
-    });
-
-    groups.forEach(function (siblings) {
-      siblings.forEach(function (el, i) {
-        el.style.setProperty('--anim-delay', BASE_DELAY + i * STEP);
-      });
+  function resetSection(sectionEl) {
+    if (!sectionEl) return;
+    sectionEl.querySelectorAll('[data-anim-in]').forEach(function (el) {
+      el.removeAttribute('data-anim-in');
     });
   }
 
-  // Collect all animatable elements on the page
-  var animEls = Array.from(document.querySelectorAll('[data-anim]'));
-  if (!animEls.length) return;
-
-  assignStagger(animEls);
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.setAttribute('data-anim-in', '');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    // Trigger as soon as even 1px of the element is visible
-    threshold: 0.01,
-    // No rootMargin so elements only fire when genuinely on screen
-    rootMargin: '0px 0px -30px 0px'
-  });
-
-  animEls.forEach(function (el) {
-    observer.observe(el);
-  });
-
-  /**
-   * Re-check all still-hidden elements each time a nav link is clicked.
-   * This handles the case on mobile where the section opens but the
-   * IntersectionObserver hasn't fired yet because the element was off-screen.
-   * We defer slightly so the section's CSS transition (opacity/position) has
-   * settled before we check visibility.
-   */
+  /* ── Hook into nav clicks ── */
   document.addEventListener('click', function (e) {
     var link = e.target.closest('#navbar .nav-link');
     if (!link) return;
 
-    // Give the section 500ms to finish its CSS entrance transition
-    setTimeout(function () {
-      animEls.forEach(function (el) {
-        if (el.hasAttribute('data-anim-in')) return; // already done
-        var rect = el.getBoundingClientRect();
-        var visible = rect.top < window.innerHeight && rect.bottom > 0;
-        if (visible) {
-          el.setAttribute('data-anim-in', '');
-          observer.unobserve(el);
-        }
-      });
-    }, 500);
+    var hash = link.getAttribute('href'); // e.g. "#resume"
+    if (!hash || hash === '#header') return;
+
+    var targetSection = document.querySelector(hash);
+    if (!targetSection) return;
+
+    /* Reset all OTHER sections so their animations replay if visited again */
+    document.querySelectorAll('section').forEach(function (sec) {
+      if (sec !== targetSection) resetSection(sec);
+    });
+
+    animateSection(targetSection);
+  }, true); /* capture phase — fires before main.js adds section-show */
+
+  /* ── Handle direct URL hash on page load ── */
+  window.addEventListener('load', function () {
+    if (window.location.hash && window.location.hash !== '#header') {
+      var sec = document.querySelector(window.location.hash);
+      animateSection(sec);
+    }
   });
 
 })();
