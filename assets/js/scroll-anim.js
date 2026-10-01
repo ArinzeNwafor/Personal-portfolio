@@ -52,27 +52,6 @@
     });
   }
 
-  /** Also stagger chips inside .reveal groups (About section) */
-  function hookRevealChips() {
-    document.querySelectorAll('.reveal').forEach(function (group) {
-      var chips = group.querySelectorAll('.ed-chip');
-      if (!chips.length) return;
-
-      // When the group gets .in-view (added by main.js IO), stagger its chips
-      var mo = new MutationObserver(function () {
-        if (!group.classList.contains('in-view')) return;
-        mo.disconnect();
-        chips.forEach(function (chip, i) {
-          chip.classList.add('chip-anim');
-          setTimeout(function () {
-            chip.classList.add('chip-anim-in');
-          }, 60 + i * 40);
-        });
-      });
-      mo.observe(group, { attributes: true, attributeFilter: ['class'] });
-    });
-  }
-
   /* ─────────────────────────────────────────────
      ENTRANCE mode — animate all at once on open
      Used for: #about, #contact (and any other section)
@@ -188,8 +167,6 @@
         onSectionShow(sec);
       }
     }
-    // Hook chip stagger into About's .reveal elements
-    hookRevealChips();
   });
 
   // Reduced motion fallback — make all data-anim elements immediately visible
