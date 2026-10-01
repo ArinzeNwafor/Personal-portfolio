@@ -551,7 +551,7 @@ section {
   top: 140px;
   bottom: 100%;
   opacity: 0;
-  transition: ease-in-out 0.4s;
+  transition: opacity 0.4s ease-in-out, top 0.4s ease-in-out;
   z-index: 2;
 }
 
