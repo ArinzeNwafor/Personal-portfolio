@@ -83,6 +83,14 @@
     var els = Array.from(section.querySelectorAll('[data-anim]'));
     if (!els.length) return;
 
+    // Mobile: CSS pins all entrance states visible, so there is nothing to
+    // observe. Reveal immediately to keep state consistent (and skip IO,
+    // which is the component iOS WebKit gets wrong).
+    if (window.matchMedia('(max-width: 991px)').matches) {
+      els.forEach(animateIn);
+      return;
+    }
+
     if (!('IntersectionObserver' in window) || reducedMotion) {
       els.forEach(animateIn);
       return;
@@ -115,6 +123,46 @@
   }
 
   /* ─────────────────────────────────────────────
+     FALLBACK SWEEP — IntersectionObserver safety net
+     iOS WebKit has reliably failed to deliver IO callbacks in some
+     situations (overflow:hidden ancestors, fixed bars, momentum scroll),
+     leaving [data-anim] elements at opacity:0 forever. This sweep reads
+     getBoundingClientRect() directly on scroll (rAF-throttled) and reveals
+     anything an open section that is inside the viewport, so a missed IO
+     callback can only delay an entrance, never hide content permanently.
+  ───────────────────────────────────────────── */
+
+  function sweepOpenSections() {
+    var vh = window.innerHeight;
+    document.querySelectorAll('section.section-show').forEach(function (sec) {
+      sec.querySelectorAll('[data-anim]:not([data-anim-in])').forEach(
+        function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.top < vh - 60 && r.bottom > 0) animateIn(el);
+        }
+      );
+      sec.querySelectorAll('.chip-anim:not(.chip-anim-in)').forEach(
+        function (c) {
+          var r = c.getBoundingClientRect();
+          if (r.top < vh && r.bottom > 0) c.classList.add('chip-anim-in');
+        }
+      );
+    });
+  }
+
+  var sweepQueued = false;
+  function queueSweep() {
+    if (sweepQueued) return;
+    sweepQueued = true;
+    requestAnimationFrame(function () {
+      sweepQueued = false;
+      sweepOpenSections();
+    });
+  }
+  window.addEventListener('scroll', queueSweep, { passive: true });
+  window.addEventListener('resize', queueSweep);
+
+  /* ─────────────────────────────────────────────
      MutationObserver — watches each section for
      .section-show being added/removed
   ───────────────────────────────────────────── */
@@ -131,6 +179,10 @@
     } else {
       runEntranceMode(section);
     }
+    // Sweep now (after layout) and again shortly after the open transition,
+    // so in-viewport content is revealed even if IO never fires.
+    queueSweep();
+    setTimeout(sweepOpenSections, 500);
   }
 
   function onSectionHide(section) {

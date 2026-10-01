@@ -328,9 +328,10 @@ h6 {
     height: auto;
     min-height: 60px;
     padding: 10px 0 12px;
-    background: rgba(4, 6, 5, 0.96);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* Solid instead of backdrop-filter: iOS WebKit has a compositing bug
+       where content under a backdrop-filtered fixed bar can vanish while
+       scrolling. Slightly opaque so the bar still reads as a bar. */
+    background: rgba(4, 6, 5, 0.97);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
@@ -2313,5 +2314,42 @@ body.hero-loaded #header h1 .hero-char {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Mobile: content is always visible, no entrance animation
+   Every animated state above starts at opacity:0 and depends on JS
+   (IntersectionObserver / data-anim-in / chip timers) to become visible.
+   If iOS WebKit skips any of those callbacks, content stays invisible
+   forever - which is exactly what was happening on iPhone. On phones we
+   simply never hide it: one CSS pin covers data-anim, chips, the About
+   section gates and the word-by-word lede.
+--------------------------------------------------------------*/
+@media (max-width: 991px) {
+  [data-anim],
+  [data-anim-in],
+  .chip-anim,
+  .chip-anim-in,
+  .reveal,
+  .reveal.in-view,
+  .about .about-me,
+  .about .counts,
+  .about .skills,
+  .about .interests,
+  .about .testimonials,
+  .about .ed-lede .ed-w,
+  .about .reveal-blur,
+  .about .reveal-line {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+    transition-delay: 0s !important;
+  }
+
+  .about .reveal-line::after {
+    display: none !important;
   }
 }
