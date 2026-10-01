@@ -2253,3 +2253,44 @@ body.hero-loaded #header h1 .hero-char {
   }
 }
 
+
+/*--------------------------------------------------------------
+# Scroll Animation System (iOS-safe, data-anim attribute)
+  Uses GPU-composited opacity + transform ONLY.
+  Triggered by section container visibility, not individual elements,
+  so iOS Safari overflow:hidden never clips them.
+--------------------------------------------------------------*/
+
+/* --- Base hidden states --- */
+[data-anim="fade-up"] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+[data-anim="slide-right"] {
+  opacity: 0;
+  transform: translateX(-36px);
+}
+[data-anim="slide-left"] {
+  opacity: 0;
+  transform: translateX(36px);
+}
+
+/* --- Animated-in states --- */
+[data-anim-in] {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--anim-delay, 0) * 1ms);
+}
+
+/* --- Reduced-motion: immediately visible, no transitions --- */
+@media (prefers-reduced-motion: reduce) {
+  [data-anim],
+  [data-anim-in] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

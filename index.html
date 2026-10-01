@@ -43,7 +43,8 @@
         #header .social-links,
         .reveal,
         #about .reveal-blur,
-        #about .reveal-line {
+        #about .reveal-line,
+        [data-anim] {
           opacity: 1 !important;
           transform: none !important;
         }
@@ -78,7 +79,7 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Main CSS File -->
-    <link href="assets/css/style.css?v=5" rel="stylesheet" />
+    <link href="assets/css/style.css?v=6" rel="stylesheet" />
   </head>
 
   <body>
@@ -165,7 +166,7 @@
     <section id="about" class="about">
       <!-- ======= About Me ======= -->
       <div class="about-me container">
-        <div class="section-title">
+        <div class="section-title" data-anim="fade-up">
           <h2>About</h2>
           <p>Developer, Founder &amp; Problem Solver</p>
         </div>
@@ -439,15 +440,15 @@
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title" data-anim="fade-up">
           <h2>Resume</h2>
           <p>Career, education and impact — on one page</p>
         </div>
 
         <div class="row">
           <div class="col-lg-6">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
+            <h3 class="resume-title" data-anim="fade-up">Summary</h3>
+            <div class="resume-item pb-0" data-anim="fade-up">
               <h4>Arinze Nwafor</h4>
               <p>
                 <em
@@ -484,8 +485,8 @@
               </ul>
             </div>
 
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
+            <h3 class="resume-title" data-anim="fade-up">Education</h3>
+            <div class="resume-item" data-anim="fade-up">
               <h4>Bachelor of Science in Computer Science</h4>
               <h5>Oct. 2023 – July 2026</h5>
               <p>
@@ -502,7 +503,7 @@
                 Mathematics.
               </p>
             </div>
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Bachelor of Science in Computer Science (First Year)</h4>
               <h5>Oct. 2022 – July 2023</h5>
               <p><em>Pan-Atlantic University, Lagos, Nigeria</em></p>
@@ -512,8 +513,8 @@
               </p>
             </div>
 
-            <h3 class="resume-title">Professional Membership</h3>
-            <div class="resume-item">
+            <h3 class="resume-title" data-anim="fade-up">Professional Membership</h3>
+            <div class="resume-item" data-anim="fade-up">
               <h4>Graduate Member (GMCPN)</h4>
               <h5>July 2026 – Present</h5>
               <p>
@@ -529,11 +530,11 @@
           </div>
 
           <div class="col-lg-6">
-            <h3 class="resume-title">
+            <h3 class="resume-title" data-anim="fade-up">
               Professional &amp; Entrepreneurial Experience
             </h3>
 
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Founder &amp; CTO — Full-Stack Mobile Developer</h4>
               <h5>June 2026 – Present</h5>
               <p><em>Kamp &bull; kamp.ng &bull; Nigeria</em></p>
@@ -562,7 +563,7 @@
               </ul>
             </div>
 
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Co-Founder &amp; Chief Technology Officer</h4>
               <h5>April 2025 – Present</h5>
               <p><em>Diverse Labs &bull; Nigeria</em></p>
@@ -587,7 +588,7 @@
               </ul>
             </div>
 
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Computer Engineering Intern — Service Delivery</h4>
               <h5>March 2025 – November 2025</h5>
               <p><em>The Source Computers Limited &bull; Lekki, Lagos</em></p>
@@ -610,7 +611,7 @@
                 </li>
               </ul>
             </div>
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Website Developer &amp; Manager (Volunteer)</h4>
               <h5>March 2022 – June 2025</h5>
               <p><em>Boundless Horizons Foundation &bull; Remote</em></p>
@@ -634,7 +635,7 @@
               </ul>
             </div>
 
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Volunteer Website Developer</h4>
               <h5>Oct. 2024 – Present</h5>
               <p>
@@ -656,11 +657,11 @@
         <!-- Technical Skills -->
         <div class="row mt-4">
           <div class="col-12">
-            <h3 class="resume-title">Technical Skills</h3>
+            <h3 class="resume-title" data-anim="fade-up">Technical Skills</h3>
           </div>
           <div class="col-12">
             <div class="ed-groups">
-              <div class="ed-group">
+              <div class="ed-group" data-anim="fade-up">
                 <h4><i class="bi bi-code-slash"></i>Languages &amp; Frameworks</h4>
                 <div>
                   <span class="ed-chip">Dart (Flutter)</span>
@@ -673,7 +674,7 @@
                   <span class="ed-chip">Rust</span>
                 </div>
               </div>
-              <div class="ed-group">
+              <div class="ed-group" data-anim="fade-up">
                 <h4><i class="bi bi-database"></i>Backend, Data &amp; Integrations</h4>
                 <div>
                   <span class="ed-chip">PostgreSQL</span>
@@ -685,7 +686,7 @@
                   <span class="ed-chip">SQL</span>
                 </div>
               </div>
-              <div class="ed-group">
+              <div class="ed-group" data-anim="fade-up">
                 <h4><i class="bi bi-tools"></i>Tools &amp; Platforms</h4>
                 <div>
                   <span class="ed-chip">Git &amp; GitHub</span>
@@ -702,7 +703,7 @@
                   <span class="ed-chip">Photoshop</span>
                 </div>
               </div>
-              <div class="ed-group">
+              <div class="ed-group" data-anim="fade-up">
                 <h4><i class="bi bi-cpu"></i>IT &amp; Engineering</h4>
                 <div>
                   <span class="ed-chip">Hardware Diagnostics &amp; Repair</span>
@@ -720,10 +721,10 @@
         <!-- Featured Projects -->
         <div class="row mt-4">
           <div class="col-12">
-            <h3 class="resume-title">Featured Projects</h3>
+            <h3 class="resume-title" data-anim="fade-up">Featured Projects</h3>
           </div>
           <div class="col-lg-6">
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Orphanage Management System (OMS)</h4>
               <h5>July 2026</h5>
               <p><em>Laravel (Filament) &bull; PHP &bull; PostgreSQL &bull; JavaScript</em></p>
@@ -740,7 +741,7 @@
                 </li>
               </ul>
             </div>
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Job Application Portal</h4>
               <h5>December 2024</h5>
               <p><em>PHP &bull; CodeIgniter &bull; Shield &bull; MySQL</em></p>
@@ -754,7 +755,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Clinical Management System</h4>
               <h5>July 2026</h5>
               <p><em>Collaborative Development &bull; McPherson University</em></p>
@@ -770,7 +771,7 @@
                 </li>
               </ul>
             </div>
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Employee Payroll &amp; Management System</h4>
               <h5>November 2024</h5>
               <p><em>Python &bull; CustomTkinter &bull; PyInstaller</em></p>
@@ -788,13 +789,13 @@
         <!-- Leadership & Community Impact Row -->
         <div class="row mt-4">
           <div class="col-12">
-            <h3 class="resume-title">
+            <h3 class="resume-title" data-anim="fade-up">
               <i class="bi bi-star-fill text-success me-2"></i> Leadership &amp;
               Community Impact
             </h3>
           </div>
           <div class="col-lg-6">
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Computer Science Department Coordinator</h4>
               <h5>2025 – 2026</h5>
               <p>
@@ -819,7 +820,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Assistant Social Worker (Volunteer)</h4>
               <h5>July 2024 – Oct. 2024</h5>
               <p>
@@ -839,7 +840,7 @@
                 </li>
               </ul>
             </div>
-            <div class="resume-item">
+            <div class="resume-item" data-anim="fade-up">
               <h4>Web Manager &amp; Technical Officer (Volunteer)</h4>
               <h5>2025 – Present</h5>
               <p>
@@ -876,7 +877,7 @@
     <section id="projects" class="portfolio" hidden aria-hidden="true" style="display: none">
     <div class="container">
 
-      <div class="section-title">
+      <div class="section-title" data-anim="fade-up">
         <h2>Projects</h2>
         <p>My Featured Software Projects &amp; Products</p>
       </div>
@@ -1122,7 +1123,7 @@
       <div class="container">
         <div class="row align-items-start">
           <!-- Left Side: statement + details -->
-          <div class="col-lg-5 contact-left mb-5 mb-lg-0">
+          <div class="col-lg-5 contact-left mb-5 mb-lg-0" data-anim="slide-right">
             <p class="ed-kicker">Contact</p>
             <h2 class="contact-title">Tell me what you're building.</h2>
             <p class="ed-body">
@@ -1193,7 +1194,7 @@
           </div>
 
           <!-- Right Side: ledger-style contact form -->
-          <div class="col-lg-7">
+          <div class="col-lg-7" data-anim="slide-left">
             <form
               class="contact-form"
               action="https://formspree.io/f/xrpbdoqq"
@@ -1312,5 +1313,10 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js?v=4"></script>
+    <script src="assets/js/scroll-anim.js?v=1"></script>
+    <script src="assets/js/contact-form.js"></script>
   </body>
 </html>
+
+
+
