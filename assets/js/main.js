@@ -84,6 +84,9 @@
         item.classList.remove('section-show')
       })
       section.classList.add('section-show')
+      section.querySelectorAll('.reveal, .reveal-blur, .reveal-line').forEach((el) => {
+        el.classList.add('in-view')
+      })
 
       scrollto(this.hash)
     }
@@ -111,6 +114,9 @@
         })
 
         initial_nav.classList.add('section-show')
+        initial_nav.querySelectorAll('.reveal, .reveal-blur, .reveal-line').forEach((el) => {
+          el.classList.add('in-view')
+        })
 
         scrollto(window.location.hash)
       }

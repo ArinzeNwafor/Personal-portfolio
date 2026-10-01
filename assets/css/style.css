@@ -2261,7 +2261,11 @@ body.hero-loaded #header h1 .hero-char {
 --------------------------------------------------------------*/
 @media (max-width: 991px) {
   #resume .reveal,
-  #contact .reveal {
+  #contact .reveal,
+  #resume .reveal-blur,
+  #contact .reveal-blur,
+  #resume .reveal-line,
+  #contact .reveal-line {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
