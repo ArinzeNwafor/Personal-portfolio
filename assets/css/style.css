@@ -2294,3 +2294,24 @@ body.hero-loaded #header h1 .hero-char {
     transition: none !important;
   }
 }
+
+/* --- Chip stagger animations (fired by scroll-anim.js) --- */
+.chip-anim {
+  opacity: 0;
+  transform: translateY(10px) scale(0.92);
+}
+.chip-anim-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .chip-anim,
+  .chip-anim-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
