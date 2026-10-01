@@ -140,7 +140,10 @@
      .section-show being added/removed
   ───────────────────────────────────────────── */
 
-  var SCROLL_WITHIN_SECTIONS = ['resume'];
+  // ALL sections use scroll-within mode:
+  // - elements already in viewport animate immediately on section open
+  // - elements below the fold animate as the user scrolls down to them
+  var SCROLL_WITHIN_SECTIONS = ['about', 'resume', 'contact'];
 
   function onSectionShow(section) {
     var id = section.id;
