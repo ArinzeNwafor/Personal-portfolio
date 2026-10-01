@@ -2252,35 +2252,3 @@ body.hero-loaded #header h1 .hero-char {
   }
 }
 
-/*--------------------------------------------------------------
-# Reliable Section Entrance Animations (Matches About Section)
-   Bind reveal animations directly to the .section-show class so they 
-   do not rely on IntersectionObserver, ensuring mobile reliability.
---------------------------------------------------------------*/
-/* Force initial hidden state for major elements */
-#resume .resume-title,
-#resume .resume-item,
-#resume .ed-group,
-#contact .contact-left,
-#contact .contact-form {
-  opacity: 0;
-  transform: translateY(24px);
-}
-
-/* Animate in precisely when section gains .section-show */
-#resume.section-show .resume-title,
-#resume.section-show .resume-item,
-#resume.section-show .ed-group,
-#contact.section-show .contact-left,
-#contact.section-show .contact-form,
-#resume.section-show .reveal, 
-#contact.section-show .reveal,
-#resume.section-show .reveal-blur, 
-#contact.section-show .reveal-blur,
-#resume.section-show .reveal-line, 
-#contact.section-show .reveal-line {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  filter: none !important;
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) !important;
-}
